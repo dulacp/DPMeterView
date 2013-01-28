@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class DPFilledPathView;
+
 @interface DPViewController : UIViewController
+
+@property (nonatomic, strong) DPFilledPathView* filledView;
+- (IBAction)animate:(id)sender;
 
 @end
