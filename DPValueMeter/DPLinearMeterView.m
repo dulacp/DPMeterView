@@ -43,10 +43,10 @@
 
 - (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape
 {
-    return [self initWithFrame:frame shape:shape motionAnimated:NO];
+    return [self initWithFrame:frame shape:shape gravity:NO];
 }
 
-- (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape motionAnimated:(BOOL)motionAnimated
+- (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape gravity:(BOOL)gravity
 {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
@@ -56,14 +56,14 @@
         self.gradientLayer.endPoint = CGPointMake(0.5f, 0.f);
         self.gradientLayer.locations = @[@0.f, @0.f];
         
-        // use the shape
+        // use the shape as a mask
         CAShapeLayer* maskLayer = [CAShapeLayer layer];
         maskLayer.path = shape;
         self.gradientLayer.mask = maskLayer;
         
-        // motion traker
-        if (motionAnimated) {
-            [self startMotionAnimation];            
+        // gravity motion
+        if (gravity) {
+            [self startGravity];            
         }
     }
     return self;
@@ -137,7 +137,7 @@
 }
 
 
-#pragma mark - Motion Animations
+#pragma mark - Gravity Motion
 
 - (void)motionRefresh:(id)sender
 {
@@ -145,7 +145,7 @@
     double yaw = self.motionManager.deviceMotion.attitude.yaw;
     
     // ensure that yaw stays between [-PI/2, +PI/2]
-    // TODO find a better way to do that, and why it happens if the device is face down..
+    // TODO find a better way to do that, and why it doesn't work if the device is face down..
     if (yaw < -M_PI_2) yaw += M_PI_2;
     if (yaw > M_PI_2) yaw -= M_PI_2;
     
@@ -180,14 +180,14 @@
     [self.gradientLayer setNeedsDisplay];
 }
 
-- (BOOL)motionAnimating
+- (BOOL)gravityActive
 {
     return self.motionDisplayLink != nil;
 }
 
-- (void)startMotionAnimation
+- (void)startGravity
 {
-    if ( ! self.motionAnimating) {
+    if ( ! [self isGravityActive]) {
         self.motionManager = [[CMMotionManager alloc] init];
         self.motionManager.deviceMotionUpdateInterval = 0.02; // 50 Hz
         
@@ -199,9 +199,9 @@
         [self.motionManager startDeviceMotionUpdates];
 }
 
-- (void)stopMotionAnimation
+- (void)stopGravity
 {
-    if (self.motionAnimating) {
+    if ([self isGravityActive]) {
         [self.motionDisplayLink invalidate];
         self.motionDisplayLink = nil;
         self.motionLastYaw = 0;

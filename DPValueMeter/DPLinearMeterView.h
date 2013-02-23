@@ -9,19 +9,19 @@
 #import <UIKit/UIKit.h>
 
 
-@interface DPLinearMeterView : UIView
+@interface DPLinearMeterView : UIView <UIAppearance>
 
 @property(nonatomic, strong) UIColor *trackTintColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, strong) UIColor *progressTintColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic) CGFloat progress;
 
 - (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape;
-- (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape motionAnimated:(BOOL)motionAnimated;
+- (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape gravity:(BOOL)gravity;
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated;
 
-// Motion Animations
-@property (nonatomic, readonly, getter = isMotionAnimating) BOOL motionAnimating;
-- (void)startMotionAnimation;
-- (void)stopMotionAnimation;
+// Gravity Motion
+@property (nonatomic, readonly, getter = isGravityActive) BOOL gravityActive;
+- (void)startGravity;
+- (void)stopGravity;
 
 @end
