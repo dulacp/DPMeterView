@@ -20,17 +20,21 @@
 + (DPLinearMeterView*)heartShapedView:(CGRect)frame
 {
     CGFloat a = MIN(frame.size.width, frame.size.height);
-    CGFloat angl = M_PI/5;
+    CGRect f = CGRectMake(frame.size.width/2 - a/2, frame.size.height/2 - a/2, a, a);
     
     // Create an heart like shape
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:CGPointMake(a/2, a)];
-    [path addLineToPoint:CGPointMake(3./4*a + a/4*cosf(angl), a/4 + a/4*sinf(angl))];
-    [path addArcWithCenter:CGPointMake(3./4*a, a/4) radius:a/4 startAngle:angl endAngle:M_PI clockwise:NO];
-    [path addArcWithCenter:CGPointMake(a/4, a/4) radius:a/4 startAngle:0 endAngle:-(M_PI+angl) clockwise:NO];
-    [path addLineToPoint:CGPointMake(a/2, a)];
+    UIBezierPath* bezierPath = [UIBezierPath bezierPath];
+    [bezierPath moveToPoint: CGPointMake(CGRectGetMinX(f) + 0.49986 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.24129 * CGRectGetHeight(f))];
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(f) + 0.00841 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.36081 * CGRectGetHeight(f)) controlPoint1: CGPointMake(CGRectGetMinX(f) + 0.37259 * CGRectGetWidth(f), CGRectGetMinY(f) + -0.06208 * CGRectGetHeight(f)) controlPoint2: CGPointMake(CGRectGetMinX(f) + 0.01079 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.00870 * CGRectGetHeight(f))];
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(f) + 0.29627 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.70379 * CGRectGetHeight(f)) controlPoint1: CGPointMake(CGRectGetMinX(f) + 0.00709 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.55420 * CGRectGetHeight(f)) controlPoint2: CGPointMake(CGRectGetMinX(f) + 0.18069 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.62648 * CGRectGetHeight(f))];
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(f) + 0.50061 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.92498 * CGRectGetHeight(f)) controlPoint1: CGPointMake(CGRectGetMinX(f) + 0.40835 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.77876 * CGRectGetHeight(f)) controlPoint2: CGPointMake(CGRectGetMinX(f) + 0.48812 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.88133 * CGRectGetHeight(f))];
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(f) + 0.70195 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.70407 * CGRectGetHeight(f)) controlPoint1: CGPointMake(CGRectGetMinX(f) + 0.50990 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.88158 * CGRectGetHeight(f)) controlPoint2: CGPointMake(CGRectGetMinX(f) + 0.59821 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.77912 * CGRectGetHeight(f))];
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(f) + 0.99177 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.35870 * CGRectGetHeight(f)) controlPoint1: CGPointMake(CGRectGetMinX(f) + 0.81539 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.62200 * CGRectGetHeight(f)) controlPoint2: CGPointMake(CGRectGetMinX(f) + 0.99308 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.55208 * CGRectGetHeight(f))];
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(f) + 0.49986 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.24129 * CGRectGetHeight(f)) controlPoint1: CGPointMake(CGRectGetMinX(f) + 0.98938 * CGRectGetWidth(f), CGRectGetMinY(f) + 0.00573 * CGRectGetHeight(f)) controlPoint2: CGPointMake(CGRectGetMinX(f) + 0.61811 * CGRectGetWidth(f), CGRectGetMinY(f) + -0.06095 * CGRectGetHeight(f))];
+    [bezierPath closePath];
+    bezierPath.miterLimit = 4;
     
-    return [[DPLinearMeterView alloc] initWithFrame:frame shape:path.CGPath motionAnimated:YES];
+    return [[DPLinearMeterView alloc] initWithFrame:frame shape:bezierPath.CGPath gravity:YES];
 }
 
 @end
@@ -71,7 +75,7 @@
 {
     if (self.filledView.progress >= 1.0) {
         [self.animationTimer invalidate];
-        [self.filledView stopMotionAnimation];
+        [self.filledView stopGravity];
         return;
     }
     
