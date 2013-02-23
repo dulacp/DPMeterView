@@ -1,14 +1,14 @@
 //
-//  PathFillTests.m
-//  PathFillTests
+//  DPValueMeterViewTests.m
+//  DPValueMeterViewTests
 //
 //  Created by Pierre Dulac on 27/01/13.
 //  Copyright (c) 2013 Pierre Dulac. All rights reserved.
 //
 
-#import "PathFillTests.h"
+#import "DPValueMeterViewTests.h"
 
-@implementation PathFillTests
+@implementation DPValueMeterViewTests
 
 - (void)setUp
 {
@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in PathFillTests");
+    STFail(@"Unit tests are not implemented yet in DPValueMeterViewTests");
 }
 
 @end

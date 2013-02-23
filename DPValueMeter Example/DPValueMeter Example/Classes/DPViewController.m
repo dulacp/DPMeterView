@@ -1,6 +1,6 @@
 //
 //  DPViewController.m
-//  PathFill
+//  DPValueMeterView
 //
 //  Created by Pierre Dulac on 27/01/13.
 //  Copyright (c) 2013 Pierre Dulac. All rights reserved.
@@ -8,16 +8,16 @@
 
 #import "DPViewController.h"
 
-#import "DPFilledPathView.h"
+#import "DPLinearMeterView.h"
 
 
-@interface DPFilledPathView (Examples)
-+ (DPFilledPathView*)heartShapedView:(CGRect)frame;
+@interface DPLinearMeterView (Example)
++ (DPLinearMeterView*)heartShapedView:(CGRect)frame;
 @end
 
-@implementation DPFilledPathView (Examples)
+@implementation DPLinearMeterView (Example)
 
-+ (DPFilledPathView*)heartShapedView:(CGRect)frame
++ (DPLinearMeterView*)heartShapedView:(CGRect)frame
 {
     CGFloat a = MIN(frame.size.width, frame.size.height);
     CGFloat angl = M_PI/5;
@@ -30,20 +30,19 @@
     [path addArcWithCenter:CGPointMake(a/4, a/4) radius:a/4 startAngle:0 endAngle:-(M_PI+angl) clockwise:NO];
     [path addLineToPoint:CGPointMake(a/2, a)];
     
-    return [[DPFilledPathView alloc] initWithFrame:frame shape:path.CGPath motionAnimated:YES];
+    return [[DPLinearMeterView alloc] initWithFrame:frame shape:path.CGPath motionAnimated:YES];
 }
 
 @end
 
 
 @interface DPViewController ()
+
 @property (nonatomic, strong) NSTimer* animationTimer;
+
 @end
 
 @implementation DPViewController
-
-@synthesize animationTimer;
-@synthesize filledView;
 
 
 - (void)viewDidLoad
@@ -51,7 +50,7 @@
     [super viewDidLoad];
     
     CGFloat w = 120.f;
-    self.filledView = [DPFilledPathView heartShapedView:CGRectMake(self.view.frame.size.width/2 - w/2,
+    self.filledView = [DPLinearMeterView heartShapedView:CGRectMake(self.view.frame.size.width/2 - w/2,
                                                                    self.view.frame.size.height/2 - w/2 - 20.f,
                                                                    w,
                                                                    w)];

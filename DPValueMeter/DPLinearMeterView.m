@@ -1,18 +1,18 @@
 //
 //  DPFilledPathView.m
-//  PathFill
+//  DPValueMeterView
 //
 //  Created by Pierre Dulac on 27/01/13.
 //  Copyright (c) 2013 Pierre Dulac. All rights reserved.
 //
 
-#import "DPFilledPathView.h"
+#import "DPLinearMeterView.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <CoreMotion/CoreMotion.h>
 
 
-@interface DPFilledPathView ()
+@interface DPLinearMeterView ()
 
 @property (nonatomic, readonly) CAGradientLayer* gradientLayer;
 @property (nonatomic, strong) CMMotionManager* motionManager;
@@ -24,17 +24,7 @@
 @end
 
 
-@implementation DPFilledPathView
-
-// private
-@synthesize gradientLayer       = _filledPathLayer;
-@synthesize motionManager       = _motionManager;
-@synthesize motionDisplayLink   = _motionDisplayLink;
-@synthesize motionLastYaw       = _motionLastYaw;
-
-// public
-@synthesize progress            = _progress;
-
+@implementation DPLinearMeterView
 
 + (Class)layerClass
 {

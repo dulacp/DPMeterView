@@ -25,9 +25,9 @@
 		BE7C404616B580EA00A4581F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C401D16B580E900A4581F /* UIKit.framework */; };
 		BE7C404716B580EA00A4581F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C401F16B580E900A4581F /* Foundation.framework */; };
 		BE7C404F16B580EA00A4581F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE7C404D16B580EA00A4581F /* InfoPlist.strings */; };
-		BE7C405216B580EA00A4581F /* PathFillTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C405116B580EA00A4581F /* PathFillTests.m */; };
-		BE7C405E16B581ED00A4581F /* DPFilledPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C405D16B581ED00A4581F /* DPFilledPathView.m */; };
-		BE7C405F16B581ED00A4581F /* DPFilledPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C405D16B581ED00A4581F /* DPFilledPathView.m */; };
+		BE7C405216B580EA00A4581F /* DPValueMeterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C405116B580EA00A4581F /* DPValueMeterTests.m */; };
+		BE7C405E16B581ED00A4581F /* DPLinearMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C405D16B581ED00A4581F /* DPLinearMeterView.m */; };
+		BE7C405F16B581ED00A4581F /* DPLinearMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C405D16B581ED00A4581F /* DPLinearMeterView.m */; };
 		BE7C406116B5864C00A4581F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C406016B5864C00A4581F /* QuartzCore.framework */; };
 		BE7C406E16B5EDB700A4581F /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C406D16B5EDB700A4581F /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
@@ -38,21 +38,21 @@
 			containerPortal = BE7C401016B580E900A4581F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = BE7C401816B580E900A4581F;
-			remoteInfo = PathFill;
+			remoteInfo = DPValueMeter;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BE0BF47C16B6DC0C00E513E0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
-		BE0BF47E16B6DC0F00E513E0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
-		BE7C401916B580E900A4581F /* PathFill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PathFill.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0BF47C16B6DC0C00E513E0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		BE0BF47E16B6DC0F00E513E0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		BE7C401916B580E900A4581F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Example.app; path = DPValueMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7C401D16B580E900A4581F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE7C401F16B580E900A4581F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE7C402116B580E900A4581F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		BE7C402516B580E900A4581F /* PathFill-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PathFill-Info.plist"; sourceTree = "<group>"; };
+		BE7C402516B580E900A4581F /* DPValueMeter-Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DPValueMeter-Example-Info.plist"; sourceTree = "<group>"; };
 		BE7C402716B580E900A4581F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE7C402916B580E900A4581F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BE7C402B16B580E900A4581F /* PathFill-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PathFill-Prefix.pch"; sourceTree = "<group>"; };
+		BE7C402B16B580E900A4581F /* DPValueMeter-Example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DPValueMeter-Example-Prefix.pch"; sourceTree = "<group>"; };
 		BE7C402C16B580E900A4581F /* DPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPAppDelegate.h; sourceTree = "<group>"; };
 		BE7C402D16B580E900A4581F /* DPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPAppDelegate.m; sourceTree = "<group>"; };
 		BE7C402F16B580E900A4581F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -62,14 +62,14 @@
 		BE7C403916B580E900A4581F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		BE7C403B16B580E900A4581F /* DPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPViewController.h; sourceTree = "<group>"; };
 		BE7C403C16B580E900A4581F /* DPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPViewController.m; sourceTree = "<group>"; };
-		BE7C404316B580EA00A4581F /* PathFillTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PathFillTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE7C404316B580EA00A4581F /* DPValueMeterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DPValueMeterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7C404416B580EA00A4581F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		BE7C404C16B580EA00A4581F /* PathFillTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PathFillTests-Info.plist"; sourceTree = "<group>"; };
+		BE7C404C16B580EA00A4581F /* DPValueMeterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DPValueMeterTests-Info.plist"; sourceTree = "<group>"; };
 		BE7C404E16B580EA00A4581F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BE7C405016B580EA00A4581F /* PathFillTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PathFillTests.h; sourceTree = "<group>"; };
-		BE7C405116B580EA00A4581F /* PathFillTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PathFillTests.m; sourceTree = "<group>"; };
-		BE7C405C16B581ED00A4581F /* DPFilledPathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPFilledPathView.h; path = DPFilledPathView/DPFilledPathView.h; sourceTree = "<group>"; };
-		BE7C405D16B581ED00A4581F /* DPFilledPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPFilledPathView.m; path = DPFilledPathView/DPFilledPathView.m; sourceTree = "<group>"; };
+		BE7C405016B580EA00A4581F /* DPValueMeterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPValueMeterTests.h; sourceTree = "<group>"; };
+		BE7C405116B580EA00A4581F /* DPValueMeterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPValueMeterTests.m; sourceTree = "<group>"; };
+		BE7C405C16B581ED00A4581F /* DPLinearMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLinearMeterView.h; sourceTree = "<group>"; };
+		BE7C405D16B581ED00A4581F /* DPLinearMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLinearMeterView.m; sourceTree = "<group>"; };
 		BE7C406016B5864C00A4581F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BE7C406D16B5EDB700A4581F /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -100,12 +100,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE10B8A116D8DFC30012AF9B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BE7C403B16B580E900A4581F /* DPViewController.h */,
+				BE7C403C16B580E900A4581F /* DPViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BE10B8A216D8DFCA0012AF9B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BE0BF47E16B6DC0F00E513E0 /* Icon.png */,
+				BE0BF47C16B6DC0C00E513E0 /* Icon@2x.png */,
+				BE7C402F16B580E900A4581F /* Default.png */,
+				BE7C403116B580E900A4581F /* Default@2x.png */,
+				BE7C403316B580E900A4581F /* Default-568h@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		BE7C400E16B580E900A4581F = {
 			isa = PBXGroup;
 			children = (
-				BE7C405B16B5819E00A4581F /* DPPathFill */,
-				BE7C402316B580E900A4581F /* PathFill */,
-				BE7C404A16B580EA00A4581F /* PathFillTests */,
+				BE7C405B16B5819E00A4581F /* DPDPValueMeter */,
+				BE7C402316B580E900A4581F /* DPValueMeter Example */,
+				BE7C404A16B580EA00A4581F /* DPValueMeterTests */,
 				BE7C401C16B580E900A4581F /* Frameworks */,
 				BE7C401A16B580E900A4581F /* Products */,
 			);
@@ -114,8 +135,8 @@
 		BE7C401A16B580E900A4581F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE7C401916B580E900A4581F /* PathFill.app */,
-				BE7C404316B580EA00A4581F /* PathFillTests.octest */,
+				BE7C401916B580E900A4581F /* Example.app */,
+				BE7C404316B580EA00A4581F /* DPValueMeterTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,70 +154,67 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BE7C402316B580E900A4581F /* PathFill */ = {
+		BE7C402316B580E900A4581F /* DPValueMeter Example */ = {
 			isa = PBXGroup;
 			children = (
+				BE10B8A116D8DFC30012AF9B /* Classes */,
+				BE10B8A216D8DFCA0012AF9B /* Resources */,
 				BE7C402C16B580E900A4581F /* DPAppDelegate.h */,
 				BE7C402D16B580E900A4581F /* DPAppDelegate.m */,
-				BE0BF47E16B6DC0F00E513E0 /* Icon.png */,
-				BE0BF47C16B6DC0C00E513E0 /* Icon@2x.png */,
 				BE7C403516B580E900A4581F /* MainStoryboard_iPhone.storyboard */,
 				BE7C403816B580E900A4581F /* MainStoryboard_iPad.storyboard */,
-				BE7C403B16B580E900A4581F /* DPViewController.h */,
-				BE7C403C16B580E900A4581F /* DPViewController.m */,
 				BE7C402416B580E900A4581F /* Supporting Files */,
 			);
-			path = PathFill;
+			path = "DPValueMeter Example";
 			sourceTree = "<group>";
 		};
 		BE7C402416B580E900A4581F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE7C402516B580E900A4581F /* PathFill-Info.plist */,
+				BE7C402516B580E900A4581F /* DPValueMeter-Example-Info.plist */,
 				BE7C402616B580E900A4581F /* InfoPlist.strings */,
 				BE7C402916B580E900A4581F /* main.m */,
-				BE7C402B16B580E900A4581F /* PathFill-Prefix.pch */,
-				BE7C402F16B580E900A4581F /* Default.png */,
-				BE7C403116B580E900A4581F /* Default@2x.png */,
-				BE7C403316B580E900A4581F /* Default-568h@2x.png */,
+				BE7C402B16B580E900A4581F /* DPValueMeter-Example-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BE7C404A16B580EA00A4581F /* PathFillTests */ = {
+		BE7C404A16B580EA00A4581F /* DPValueMeterTests */ = {
 			isa = PBXGroup;
 			children = (
-				BE7C405016B580EA00A4581F /* PathFillTests.h */,
-				BE7C405116B580EA00A4581F /* PathFillTests.m */,
+				BE7C405016B580EA00A4581F /* DPValueMeterTests.h */,
+				BE7C405116B580EA00A4581F /* DPValueMeterTests.m */,
 				BE7C404B16B580EA00A4581F /* Supporting Files */,
 			);
-			path = PathFillTests;
+			name = DPValueMeterTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		BE7C404B16B580EA00A4581F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE7C404C16B580EA00A4581F /* PathFillTests-Info.plist */,
+				BE7C404C16B580EA00A4581F /* DPValueMeterTests-Info.plist */,
 				BE7C404D16B580EA00A4581F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BE7C405B16B5819E00A4581F /* DPPathFill */ = {
+		BE7C405B16B5819E00A4581F /* DPDPValueMeter */ = {
 			isa = PBXGroup;
 			children = (
-				BE7C405C16B581ED00A4581F /* DPFilledPathView.h */,
-				BE7C405D16B581ED00A4581F /* DPFilledPathView.m */,
+				BE7C405C16B581ED00A4581F /* DPLinearMeterView.h */,
+				BE7C405D16B581ED00A4581F /* DPLinearMeterView.m */,
 			);
-			name = DPPathFill;
+			name = DPDPValueMeter;
+			path = ../DPValueMeter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BE7C401816B580E900A4581F /* PathFill */ = {
+		BE7C401816B580E900A4581F /* DPValueMeter Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE7C405516B580EA00A4581F /* Build configuration list for PBXNativeTarget "PathFill" */;
+			buildConfigurationList = BE7C405516B580EA00A4581F /* Build configuration list for PBXNativeTarget "DPValueMeter Example" */;
 			buildPhases = (
 				BE7C401516B580E900A4581F /* Sources */,
 				BE7C401616B580E900A4581F /* Frameworks */,
@@ -206,14 +224,14 @@
 			);
 			dependencies = (
 			);
-			name = PathFill;
-			productName = PathFill;
-			productReference = BE7C401916B580E900A4581F /* PathFill.app */;
+			name = "DPValueMeter Example";
+			productName = DPValueMeter;
+			productReference = BE7C401916B580E900A4581F /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BE7C404216B580EA00A4581F /* PathFillTests */ = {
+		BE7C404216B580EA00A4581F /* DPValueMeterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE7C405816B580EA00A4581F /* Build configuration list for PBXNativeTarget "PathFillTests" */;
+			buildConfigurationList = BE7C405816B580EA00A4581F /* Build configuration list for PBXNativeTarget "DPValueMeterTests" */;
 			buildPhases = (
 				BE7C403E16B580EA00A4581F /* Sources */,
 				BE7C403F16B580EA00A4581F /* Frameworks */,
@@ -225,9 +243,9 @@
 			dependencies = (
 				BE7C404916B580EA00A4581F /* PBXTargetDependency */,
 			);
-			name = PathFillTests;
-			productName = PathFillTests;
-			productReference = BE7C404316B580EA00A4581F /* PathFillTests.octest */;
+			name = DPValueMeterTests;
+			productName = DPValueMeterTests;
+			productReference = BE7C404316B580EA00A4581F /* DPValueMeterTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -240,7 +258,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Pierre Dulac";
 			};
-			buildConfigurationList = BE7C401316B580E900A4581F /* Build configuration list for PBXProject "PathFill" */;
+			buildConfigurationList = BE7C401316B580E900A4581F /* Build configuration list for PBXProject "DPValueMeter Example" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -252,8 +270,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE7C401816B580E900A4581F /* PathFill */,
-				BE7C404216B580EA00A4581F /* PathFillTests */,
+				BE7C401816B580E900A4581F /* DPValueMeter Example */,
+				BE7C404216B580EA00A4581F /* DPValueMeterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -308,7 +326,7 @@
 				BE7C402A16B580E900A4581F /* main.m in Sources */,
 				BE7C402E16B580E900A4581F /* DPAppDelegate.m in Sources */,
 				BE7C403D16B580E900A4581F /* DPViewController.m in Sources */,
-				BE7C405E16B581ED00A4581F /* DPFilledPathView.m in Sources */,
+				BE7C405E16B581ED00A4581F /* DPLinearMeterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,8 +334,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE7C405216B580EA00A4581F /* PathFillTests.m in Sources */,
-				BE7C405F16B581ED00A4581F /* DPFilledPathView.m in Sources */,
+				BE7C405216B580EA00A4581F /* DPValueMeterTests.m in Sources */,
+				BE7C405F16B581ED00A4581F /* DPLinearMeterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +344,7 @@
 /* Begin PBXTargetDependency section */
 		BE7C404916B580EA00A4581F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BE7C401816B580E900A4581F /* PathFill */;
+			target = BE7C401816B580E900A4581F /* DPValueMeter Example */;
 			targetProxy = BE7C404816B580EA00A4581F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -425,8 +443,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PathFill/PathFill-Prefix.pch";
-				INFOPLIST_FILE = "PathFill/PathFill-Info.plist";
+				GCC_PREFIX_HEADER = "DPValueMeter Example/DPValueMeter-Example-Prefix.pch";
+				INFOPLIST_FILE = "DPValueMeter Example/DPValueMeter-Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -436,8 +454,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PathFill/PathFill-Prefix.pch";
-				INFOPLIST_FILE = "PathFill/PathFill-Info.plist";
+				GCC_PREFIX_HEADER = "DPValueMeter Example/DPValueMeter-Example-Prefix.pch";
+				INFOPLIST_FILE = "DPValueMeter Example/DPValueMeter-Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -446,14 +464,14 @@
 		BE7C405916B580EA00A4581F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PathFill.app/PathFill";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Example.app/DPValueMeter";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PathFill/PathFill-Prefix.pch";
-				INFOPLIST_FILE = "PathFillTests/PathFillTests-Info.plist";
+				GCC_PREFIX_HEADER = "DPValueMeter Example/DPValueMeter-Example-Prefix.pch";
+				INFOPLIST_FILE = "DPValueMeter Example/DPValueMeter-Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -463,14 +481,14 @@
 		BE7C405A16B580EA00A4581F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PathFill.app/PathFill";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Example.app/DPValueMeter";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PathFill/PathFill-Prefix.pch";
-				INFOPLIST_FILE = "PathFillTests/PathFillTests-Info.plist";
+				GCC_PREFIX_HEADER = "DPValueMeter Example/DPValueMeter-Example-Prefix.pch";
+				INFOPLIST_FILE = "DPValueMeter Example/DPValueMeter-Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -480,7 +498,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BE7C401316B580E900A4581F /* Build configuration list for PBXProject "PathFill" */ = {
+		BE7C401316B580E900A4581F /* Build configuration list for PBXProject "DPValueMeter Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE7C405316B580EA00A4581F /* Debug */,
@@ -489,7 +507,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE7C405516B580EA00A4581F /* Build configuration list for PBXNativeTarget "PathFill" */ = {
+		BE7C405516B580EA00A4581F /* Build configuration list for PBXNativeTarget "DPValueMeter Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE7C405616B580EA00A4581F /* Debug */,
@@ -498,7 +516,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE7C405816B580EA00A4581F /* Build configuration list for PBXNativeTarget "PathFillTests" */ = {
+		BE7C405816B580EA00A4581F /* Build configuration list for PBXNativeTarget "DPValueMeterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE7C405916B580EA00A4581F /* Debug */,

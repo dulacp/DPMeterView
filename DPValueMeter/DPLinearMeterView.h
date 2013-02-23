@@ -1,6 +1,6 @@
 //
 //  DPFilledPathView.h
-//  PathFill
+//  DPValueMeterView
 //
 //  Created by Pierre Dulac on 27/01/13.
 //  Copyright (c) 2013 Pierre Dulac. All rights reserved.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface DPFilledPathView : UIView
+@interface DPLinearMeterView : UIView
 
 @property(nonatomic, strong) UIColor *trackTintColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, strong) UIColor *progressTintColor UI_APPEARANCE_SELECTOR;

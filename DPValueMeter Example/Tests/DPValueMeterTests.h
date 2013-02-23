@@ -1,6 +1,6 @@
 //
-//  PathFillTests.h
-//  PathFillTests
+//  DPValueMeterViewTests.h
+//  DPValueMeterViewTests
 //
 //  Created by Pierre Dulac on 27/01/13.
 //  Copyright (c) 2013 Pierre Dulac. All rights reserved.
@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface PathFillTests : SenTestCase
+@interface DPValueMeterViewTests : SenTestCase
 
 @end

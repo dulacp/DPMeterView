@@ -27,7 +27,7 @@
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sL-AV-9Cu">
                                 <items>
-                                    <navigationItem title="DPPathFill Demo" id="YcO-CI-jNL"/>
+                                    <navigationItem title="DPDPValueMeterView Demo" id="YcO-CI-jNL"/>
                                 </items>
                             </navigationBar>
                         </subviews>
