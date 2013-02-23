@@ -1,0 +1,8 @@
+platform :ios, :deployment_target => '5.0'
+
+pod 'Kiwi'
+
+# Add Kiwi as an exclusive dependency for the Tests target
+target :DPMeterViewTests, :exclusive => true do
+   pod 'Kiwi'
+end

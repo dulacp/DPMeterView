@@ -19,6 +19,8 @@
 @property (nonatomic, strong) CADisplayLink* motionDisplayLink;
 @property (nonatomic) float motionLastYaw;
 
+- (void)commonInit;
+- (void)initialGradientOrientation;
 - (void)motionRefresh:(id)sender;
 
 @end
@@ -78,10 +80,16 @@
     self.backgroundColor = [UIColor clearColor];
     self.trackTintColor = [UIColor greenColor];
     self.progressTintColor = [UIColor blueColor];
-    self.gradientLayer.startPoint = CGPointMake(0.5f, 1.f);
-    self.gradientLayer.endPoint = CGPointMake(0.5f, 0.f);
+    
+    [self initialGradientOrientation];
     self.gradientLayer.locations = @[@0.f, @0.f];
     self.progress = 0.f;
+}
+
+- (void)initialGradientOrientation
+{
+    self.gradientLayer.startPoint = CGPointMake(0.5f, 1.f);
+    self.gradientLayer.endPoint = CGPointMake(0.5f, 0.f);
 }
 
 - (void)didMoveToWindow
@@ -158,9 +166,19 @@
     _progress = pinnedProgress;
 }
 
+- (void)minus:(CGFloat)delta
+{
+    [self minus:delta animated:NO];
+}
+
 - (void)minus:(CGFloat)delta animated:(BOOL)animated
 {
     [self setProgress:(self.progress - delta) animated:animated];
+}
+
+- (void)add:(CGFloat)delta
+{
+    [self add:delta animated:NO];
 }
 
 - (void)add:(CGFloat)delta animated:(BOOL)animated
@@ -170,6 +188,11 @@
 
 
 #pragma mark - Gravity Motion
+
+- (CGFloat)currentYaw
+{
+    return 0.5f - self.gradientLayer.startPoint.x;
+}
 
 - (void)motionRefresh:(id)sender
 {
@@ -212,7 +235,7 @@
     [self.gradientLayer setNeedsDisplay];
 }
 
-- (BOOL)gravityActive
+- (BOOL)isGravityActive
 {
     return self.motionDisplayLink != nil;
 }
@@ -237,6 +260,9 @@
         [self.motionDisplayLink invalidate];
         self.motionDisplayLink = nil;
         self.motionLastYaw = 0;
+        
+        // reset the gradient orientation
+        [self initialGradientOrientation];
         
         self.motionManager = nil;   // release the motion manager memory
     }
