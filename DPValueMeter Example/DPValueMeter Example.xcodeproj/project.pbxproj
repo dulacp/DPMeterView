@@ -45,7 +45,7 @@
 /* Begin PBXFileReference section */
 		BE0BF47C16B6DC0C00E513E0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		BE0BF47E16B6DC0F00E513E0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		BE7C401916B580E900A4581F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Example.app; path = DPValueMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE7C401916B580E900A4581F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7C401D16B580E900A4581F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE7C401F16B580E900A4581F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE7C402116B580E900A4581F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -212,9 +212,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BE7C401816B580E900A4581F /* DPValueMeter Example */ = {
+		BE7C401816B580E900A4581F /* Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE7C405516B580EA00A4581F /* Build configuration list for PBXNativeTarget "DPValueMeter Example" */;
+			buildConfigurationList = BE7C405516B580EA00A4581F /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
 				BE7C401516B580E900A4581F /* Sources */,
 				BE7C401616B580E900A4581F /* Frameworks */,
@@ -224,7 +224,7 @@
 			);
 			dependencies = (
 			);
-			name = "DPValueMeter Example";
+			name = Example;
 			productName = DPValueMeter;
 			productReference = BE7C401916B580E900A4581F /* Example.app */;
 			productType = "com.apple.product-type.application";
@@ -270,7 +270,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE7C401816B580E900A4581F /* DPValueMeter Example */,
+				BE7C401816B580E900A4581F /* Example */,
 				BE7C404216B580EA00A4581F /* DPValueMeterTests */,
 			);
 		};
@@ -344,7 +344,7 @@
 /* Begin PBXTargetDependency section */
 		BE7C404916B580EA00A4581F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BE7C401816B580E900A4581F /* DPValueMeter Example */;
+			target = BE7C401816B580E900A4581F /* Example */;
 			targetProxy = BE7C404816B580EA00A4581F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -507,7 +507,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE7C405516B580EA00A4581F /* Build configuration list for PBXNativeTarget "DPValueMeter Example" */ = {
+		BE7C405516B580EA00A4581F /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE7C405616B580EA00A4581F /* Debug */,

@@ -17,7 +17,12 @@
 
 - (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape;
 - (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape gravity:(BOOL)gravity;
+
+- (void)setShape:(CGPathRef)shape;
+
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated;
+- (void)minus:(CGFloat)delta animated:(BOOL)animated;
+- (void)add:(CGFloat)delta animated:(BOOL)animated;
 
 // Gravity Motion
 @property (nonatomic, readonly, getter = isGravityActive) BOOL gravityActive;

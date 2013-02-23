@@ -12,12 +12,14 @@
 
 
 @interface DPLinearMeterView (Example)
-+ (DPLinearMeterView*)heartShapedView:(CGRect)frame;
+
++ (UIBezierPath *)heartShape:(CGRect)frame;
+
 @end
 
 @implementation DPLinearMeterView (Example)
 
-+ (DPLinearMeterView*)heartShapedView:(CGRect)frame
++ (UIBezierPath *)heartShape:(CGRect)frame
 {
     CGFloat a = MIN(frame.size.width, frame.size.height);
     CGRect f = CGRectMake(frame.size.width/2 - a/2, frame.size.height/2 - a/2, a, a);
@@ -34,7 +36,7 @@
     [bezierPath closePath];
     bezierPath.miterLimit = 4;
     
-    return [[DPLinearMeterView alloc] initWithFrame:frame shape:bezierPath.CGPath gravity:YES];
+    return bezierPath;
 }
 
 @end
@@ -53,17 +55,19 @@
 {
     [super viewDidLoad];
     
-    CGFloat w = 120.f;
-    self.filledView = [DPLinearMeterView heartShapedView:CGRectMake(self.view.frame.size.width/2 - w/2,
-                                                                   self.view.frame.size.height/2 - w/2 - 20.f,
-                                                                   w,
-                                                                   w)];
+    // UIApperance
+    [[DPLinearMeterView appearance] setTrackTintColor:[UIColor darkGrayColor]];
+    [[DPLinearMeterView appearance] setProgressTintColor:[UIColor lightGrayColor]];
     
-    // beautiful red over gray
-    self.filledView.trackTintColor = [UIColor lightGrayColor];
-    self.filledView.progressTintColor = [UIColor colorWithRed:189/255.f green:32/255.f blue:49/255.f alpha:1.f];
-    [self.filledView setProgress:0.f animated:NO];
-    [self.view addSubview:self.filledView];
+    // shape 1 -- Heart
+    [self.shape1View setShape:[DPLinearMeterView heartShape:self.shape1View.frame].CGPath];
+    self.shape1View.trackTintColor = [UIColor lightGrayColor];
+    self.shape1View.progressTintColor = [UIColor colorWithRed:189/255.f green:32/255.f blue:49/255.f alpha:1.f];
+    [self.shape1View setProgress:0.f animated:NO];
+    
+    // shape 2 -- TODO other shapes
+    // shape 3 -- ...
+    // shape 4 -- ...
 }
 
 - (NSUInteger)supportedInterfaceOrientations
@@ -71,15 +75,62 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
-- (IBAction)animate:(id)sender
+- (NSArray *)shapeViews
 {
-    if (self.filledView.progress >= 1.0) {
-        [self.animationTimer invalidate];
-        [self.filledView stopGravity];
-        return;
+    NSMutableArray *shapeViews = [NSMutableArray array];
+    
+    if (self.shape1View && [self.shape1View isKindOfClass:[DPLinearMeterView class]])
+        [shapeViews addObject:self.shape1View];
+    
+    if (self.shape2View && [self.shape2View isKindOfClass:[DPLinearMeterView class]])
+        [shapeViews addObject:self.shape2View];
+    
+    if (self.shape3View && [self.shape3View isKindOfClass:[DPLinearMeterView class]])
+        [shapeViews addObject:self.shape3View];
+    
+    if (self.shape4View && [self.shape4View isKindOfClass:[DPLinearMeterView class]])
+        [shapeViews addObject:self.shape4View];
+    
+    return [NSArray arrayWithArray:shapeViews];
+}
+
+- (void)updateProgressWithDelta:(CGFloat)delta animated:(BOOL)animated
+{
+    NSArray *shapeViews = [self shapeViews];
+    for (DPLinearMeterView *shapeView in shapeViews) {
+        if (delta < 0) {
+            [shapeView minus:fabs(delta) animated:animated];
+        } else {
+            [shapeView add:fabs(delta) animated:animated];
+        }
     }
     
-    [self.filledView setProgress:(self.filledView.progress+0.15) animated:YES];
+    self.progressLabel.text = [NSString stringWithFormat:@"%.2f %%",
+                               [(DPLinearMeterView *)[shapeViews lastObject] progress]*100];
+}
+
+- (IBAction)minus:(id)sender
+{
+    [self updateProgressWithDelta:-0.1 animated:YES];
+}
+
+- (IBAction)add:(id)sender
+{
+    [self updateProgressWithDelta:+0.1 animated:YES];
+}
+
+- (IBAction)toggleGravity:(id)sender
+{
+    for (DPLinearMeterView *shapeView in [self shapeViews]) {
+        NSLog(@"sw: %@ | %@", self.gravitySwitch.on ? @"YES" : @"NO", [shapeView isGravityActive] ? @"YES" : @"NO");
+        if ([self.gravitySwitch isOn] && ![shapeView isGravityActive]) {
+            NSLog(@"wws: %@", self.gravitySwitch.on ? @"YES" : @"NO");
+            [shapeView startGravity];
+        } else if (![self.gravitySwitch isOn] && [shapeView isGravityActive]) {
+            NSLog(@"sww: %@", self.gravitySwitch.on ? @"YES" : @"NO");
+            [shapeView stopGravity];
+        }
+    }
 }
 
 @end

@@ -36,9 +36,16 @@
     return (CAGradientLayer*)self.layer;
 }
 
-- (id)init
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    return [self initWithFrame:CGRectMake(0.0f, 0.0f, 40.0f, 40.0f)];
+    self = [super initWithCoder:aDecoder];
+    if (!self) {
+        return nil;
+    }
+    
+    [self commonInit];
+    
+    return self;
 }
 
 - (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape
@@ -48,25 +55,33 @@
 
 - (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape gravity:(BOOL)gravity
 {
-    if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor clearColor];
-        self.trackTintColor = [UIColor greenColor];
-        self.progressTintColor = [UIColor blueColor];
-        self.gradientLayer.startPoint = CGPointMake(0.5f, 1.f);
-        self.gradientLayer.endPoint = CGPointMake(0.5f, 0.f);
-        self.gradientLayer.locations = @[@0.f, @0.f];
-        
-        // use the shape as a mask
-        CAShapeLayer* maskLayer = [CAShapeLayer layer];
-        maskLayer.path = shape;
-        self.gradientLayer.mask = maskLayer;
-        
-        // gravity motion
-        if (gravity) {
-            [self startGravity];            
-        }
+    self = [super initWithFrame:frame];
+    if (!self) {
+        return nil;
     }
+    
+    [self commonInit];
+    
+    // use the shape as a mask
+    [self setShape:shape];
+    
+    // gravity motion
+    if (gravity) {
+        [self startGravity];            
+    }
+
     return self;
+}
+
+- (void)commonInit
+{
+    self.backgroundColor = [UIColor clearColor];
+    self.trackTintColor = [UIColor greenColor];
+    self.progressTintColor = [UIColor blueColor];
+    self.gradientLayer.startPoint = CGPointMake(0.5f, 1.f);
+    self.gradientLayer.endPoint = CGPointMake(0.5f, 0.f);
+    self.gradientLayer.locations = @[@0.f, @0.f];
+    self.progress = 0.f;
 }
 
 - (void)didMoveToWindow
@@ -75,7 +90,14 @@
 }
 
 
-#pragma Setters & Getters
+#pragma mark - Setters & Getters
+
+- (void)setShape:(CGPathRef)shape
+{
+    CAShapeLayer* maskLayer = [CAShapeLayer layer];
+    maskLayer.path = shape;
+    self.gradientLayer.mask = maskLayer;
+}
 
 - (void)updateGradientColors
 {
@@ -134,6 +156,16 @@
     
     self.gradientLayer.locations = newLocations;
     _progress = pinnedProgress;
+}
+
+- (void)minus:(CGFloat)delta animated:(BOOL)animated
+{
+    [self setProgress:(self.progress - delta) animated:animated];
+}
+
+- (void)add:(CGFloat)delta animated:(BOOL)animated
+{
+    [self setProgress:(self.progress + delta) animated:animated];
 }
 
 
