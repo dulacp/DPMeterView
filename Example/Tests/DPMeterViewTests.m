@@ -17,10 +17,11 @@
 SPEC_BEGIN(Test)
 
 describe(@"DPLinearMeterView", ^{
+    __block CGFloat width = 20.f;
     __block DPMeterView *meterView = nil;
     
     beforeEach(^{
-        meterView = [[DPMeterView alloc] init];
+        meterView = [[DPMeterView alloc] initWithFrame:CGRectMake(0, 0, width, width)];
     });
     
     afterAll(^{
@@ -98,6 +99,19 @@ describe(@"DPLinearMeterView", ^{
 
     });
     
+    context(@"has a shape smaller than the view frame (inset)", ^{
+        __block CGFloat inset = 2.f;
+        
+        beforeEach(^{
+            [meterView setShape:[UIBezierPath bezierPathWithRect:CGRectInset(meterView.bounds, inset, inset)].CGPath];
+        });
+        
+        it(@"should have a gradient location > 0 even for a progress of 0", ^{
+            CGFloat rescaledProgress = [meterView rescaledProgress:0.f];
+            [[theValue(rescaledProgress) should] equal:(inset / meterView.bounds.size.height) withDelta:EPSILON];
+        });
+    
+    });
 });
 
 SPEC_END

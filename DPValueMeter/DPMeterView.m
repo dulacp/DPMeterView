@@ -20,6 +20,7 @@
 @property (nonatomic) float motionLastYaw;
 
 - (void)commonInit;
+- (NSArray *)gradientLocations:(CGFloat)progress;
 - (void)initialGradientOrientation;
 - (void)motionRefresh:(id)sender;
 
@@ -107,6 +108,11 @@
     self.gradientLayer.mask = maskLayer;
 }
 
+- (CGRect)shapeBounds
+{
+    return CGPathGetPathBoundingBox([(CAShapeLayer *)self.gradientLayer.mask path]);
+}
+
 - (void)updateGradientColors
 {
     self.gradientLayer.colors = [[NSArray alloc] initWithObjects:
@@ -134,6 +140,37 @@
 
 #pragma mark - Progress
 
+- (CGFloat)rescaledProgress:(CGFloat)progress
+{
+    // make sure again that it's a percentage
+    CGFloat pinnedProgress = MIN(MAX(progress, 0.f), 1.f);
+    
+    // get the bounding box of the mask shape
+    CGRect bounds = [self shapeBounds];
+    
+    if (CGRectIsEmpty(bounds)) {
+        return pinnedProgress;
+    }
+    
+    // rescale the progress against the shape height
+    CGFloat scaledProgress = pinnedProgress * CGRectGetHeight(bounds);
+    
+    // translate the progress to the beginning of the shape
+    // NB: the coordinates of Apple are (0,0) at the top left
+    scaledProgress += (self.bounds.size.height - CGRectGetMaxY(bounds));
+    
+    // convert into a percentage
+    scaledProgress /= self.bounds.size.height;
+    
+    return scaledProgress;
+}
+
+- (NSArray *)gradientLocations:(CGFloat)progress
+{
+    CGFloat rescaledProgress = [self rescaledProgress:progress];
+    return @[[NSNumber numberWithFloat:rescaledProgress], [NSNumber numberWithFloat:rescaledProgress]];
+}
+
 - (void)setProgress:(CGFloat)progress
 {
     [self setProgress:progress animated:NO];
@@ -142,7 +179,7 @@
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated
 {
     CGFloat pinnedProgress = MIN(MAX(progress, 0.f), 1.f);
-    NSArray* newLocations = @[[NSNumber numberWithFloat:pinnedProgress], [NSNumber numberWithFloat:pinnedProgress]];
+    NSArray* newLocations = [self gradientLocations:pinnedProgress];
     
     if (animated)
     {

@@ -86,7 +86,12 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="FqW-iP-08z" customClass="DPMeterView">
-                                <rect key="frame" x="174" y="214" width="120" height="120"/>
+                                <rect key="frame" x="174" y="214" width="120" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="QK2-4K-HHo" customClass="DPMeterView">
+                                <rect key="frame" x="174" y="286" width="120" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -100,6 +105,7 @@
                         <outlet property="shape2View" destination="Sti-2F-04i" id="97O-o6-ZSx"/>
                         <outlet property="shape3View" destination="gEE-MX-mkn" id="exo-mg-A5k"/>
                         <outlet property="shape4View" destination="FqW-iP-08z" id="s7A-Kw-Ub9"/>
+                        <outlet property="shape5View" destination="QK2-4K-HHo" id="pj1-F2-5o5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -107,8 +113,8 @@
         </scene>
     </scenes>
     <classes>
-        <class className="DPLinearMeterView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DPLinearMeterView.h"/>
+        <class className="DPMeterView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DPMeterView.h"/>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
@@ -118,10 +124,11 @@
                 <relationship kind="action" name="toggleGravity:"/>
                 <relationship kind="outlet" name="gravitySwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="progressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="shape1View" candidateClass="DPLinearMeterView"/>
-                <relationship kind="outlet" name="shape2View" candidateClass="DPLinearMeterView"/>
-                <relationship kind="outlet" name="shape3View" candidateClass="DPLinearMeterView"/>
-                <relationship kind="outlet" name="shape4View" candidateClass="DPLinearMeterView"/>
+                <relationship kind="outlet" name="shape1View" candidateClass="DPMeterView"/>
+                <relationship kind="outlet" name="shape2View" candidateClass="DPMeterView"/>
+                <relationship kind="outlet" name="shape3View" candidateClass="DPMeterView"/>
+                <relationship kind="outlet" name="shape4View" candidateClass="DPMeterView"/>
+                <relationship kind="outlet" name="shape5View" candidateClass="DPMeterView"/>
             </relationships>
         </class>
     </classes>

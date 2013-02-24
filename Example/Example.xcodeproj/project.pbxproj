@@ -11,6 +11,7 @@
 		69AF6FE18A554E83B96587A7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C31862DBEA1A4747AE7D6D77 /* libPods.a */; };
 		BE0BF47D16B6DC0C00E513E0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0BF47C16B6DC0C00E513E0 /* Icon@2x.png */; };
 		BE0BF47F16B6DC0F00E513E0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0BF47E16B6DC0F00E513E0 /* Icon.png */; };
+		BE61EFD716DA3663005AA835 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C402116B580E900A4581F /* CoreGraphics.framework */; };
 		BE7C401E16B580E900A4581F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C401D16B580E900A4581F /* UIKit.framework */; };
 		BE7C402016B580E900A4581F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C401F16B580E900A4581F /* Foundation.framework */; };
 		BE7C402216B580E900A4581F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C402116B580E900A4581F /* CoreGraphics.framework */; };
@@ -101,6 +102,7 @@
 			files = (
 				BEA03E9D16D9512B0055C516 /* CoreMotion.framework in Frameworks */,
 				BEA03E9C16D951200055C516 /* QuartzCore.framework in Frameworks */,
+				BE61EFD716DA3663005AA835 /* CoreGraphics.framework in Frameworks */,
 				BE7C404516B580EA00A4581F /* SenTestingKit.framework in Frameworks */,
 				BE7C404616B580EA00A4581F /* UIKit.framework in Frameworks */,
 				BE7C404716B580EA00A4581F /* Foundation.framework in Frameworks */,
