@@ -17,11 +17,10 @@
 SPEC_BEGIN(Test)
 
 describe(@"DPLinearMeterView", ^{
-    __block CGFloat width = 20.f;
     __block DPMeterView *meterView = nil;
     
     beforeEach(^{
-        meterView = [[DPMeterView alloc] initWithFrame:CGRectMake(0, 0, width, width)];
+        meterView = [[DPMeterView alloc] init];
     });
     
     afterAll(^{
@@ -100,15 +99,59 @@ describe(@"DPLinearMeterView", ^{
     });
     
     context(@"has a shape smaller than the view frame (inset)", ^{
-        __block CGFloat inset = 2.f;
         
         beforeEach(^{
-            [meterView setShape:[UIBezierPath bezierPathWithRect:CGRectInset(meterView.bounds, inset, inset)].CGPath];
+            /**
+             *  ----------------------------
+             * |            ^               |
+             * |           3px              |
+             * |       --------------       |
+             * |< 4px |              | 2px >|
+             * |      |              |      |
+             * |      |              |      |
+             * |       --------------       |
+             * |            ^               |
+             * |           1px              |
+             *  ----------------------------
+             *
+             * the outer box 
+             *  size:   (width=20, height=20)
+             *
+             * the inner box (represents the rectangular shape)
+             *  offset: (x=4, y=3)
+             *  size:   (width=14, height=16)
+             */
+            CGRect box = CGRectMake(0, 0, 20.f, 20.f);
+            CGRect innerBox = CGRectMake(4.f, 3.f, box.size.width - 6.f, box.size.height - 4.f);
+            [meterView setFrame:box];
+            [meterView setShape:[UIBezierPath bezierPathWithRect:innerBox].CGPath];
         });
         
-        it(@"should have a gradient location > 0 even for a progress of 0", ^{
+        it(@"should have a rescaledProgress > 0", ^{
             CGFloat rescaledProgress = [meterView rescaledProgress:0.f];
-            [[theValue(rescaledProgress) should] equal:(inset / meterView.bounds.size.height) withDelta:EPSILON];
+            [[theValue(rescaledProgress) should] equal:0.05 withDelta:EPSILON];
+        });
+        
+        it(@"should have a rescaledProgress correct", ^{
+            CGFloat rescaledProgress = [meterView rescaledProgress:.5f];
+            /**
+             * 50% in the inner box is easy calculated
+             * 0.5 * the inner box height
+             *  => 8
+             * then we shift the result up with 1 (the bottom padding)
+             *  => 9
+             * finally we translate that height in a percentage of the outer box
+             *  => 9.0 / 20
+             */
+            [[theValue(rescaledProgress) should] equal:0.45 withDelta:EPSILON];
+        });
+        
+        it(@"should be completely filled for a progress of 1", ^{
+            CGFloat rescaledProgress = [meterView rescaledProgress:1.f];
+            // compute the equivalent height
+            CGFloat h = rescaledProgress * meterView.bounds.size.height;
+            // it should be more or equal to the (bottom padding + shape height)
+            [[theValue(h) should] beGreaterThanOrEqualTo:theValue(1 + 16)];
         });
     
     });
