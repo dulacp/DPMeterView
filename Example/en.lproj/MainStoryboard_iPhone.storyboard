@@ -16,7 +16,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="DPDPValueMeterView Demo" id="YcO-CI-jNL"/>
+                                    <navigationItem title="DPMeterView Demo" id="YcO-CI-jNL"/>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fXd-f4-l40">
@@ -85,7 +85,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="FqW-iP-08z">
+                            <view contentMode="scaleToFill" id="FqW-iP-08z" customClass="DPLinearMeterView">
                                 <rect key="frame" x="174" y="214" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,6 +99,7 @@
                         <outlet property="shape1View" destination="6Pz-6U-ilX" id="n6T-0m-9h3"/>
                         <outlet property="shape2View" destination="Sti-2F-04i" id="97O-o6-ZSx"/>
                         <outlet property="shape3View" destination="gEE-MX-mkn" id="exo-mg-A5k"/>
+                        <outlet property="shape4View" destination="FqW-iP-08z" id="s7A-Kw-Ub9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -108,6 +109,20 @@
     <classes>
         <class className="DPLinearMeterView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DPLinearMeterView.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="add:"/>
+                <relationship kind="action" name="minus:"/>
+                <relationship kind="action" name="toggleGravity:"/>
+                <relationship kind="outlet" name="gravitySwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="progressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shape1View" candidateClass="DPLinearMeterView"/>
+                <relationship kind="outlet" name="shape2View" candidateClass="DPLinearMeterView"/>
+                <relationship kind="outlet" name="shape3View" candidateClass="DPLinearMeterView"/>
+                <relationship kind="outlet" name="shape4View" candidateClass="DPLinearMeterView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

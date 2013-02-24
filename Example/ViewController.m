@@ -16,6 +16,7 @@
 + (UIBezierPath *)heartShape:(CGRect)originalFrame;
 + (UIBezierPath *)martiniShape:(CGRect)originalFrame;
 + (UIBezierPath *)beakerShape:(CGRect)originalFrame;
++ (UIBezierPath *)starShape:(CGRect)originalFrame;
 
 @end
 
@@ -137,6 +138,26 @@
     return bezierPath;
 }
 
++ (UIBezierPath *)starShape:(CGRect)originalFrame
+{
+    CGRect frame = [self maximumSquareFrameThatFits:originalFrame];
+    
+    UIBezierPath* bezierPath = [UIBezierPath bezierPath];
+    [bezierPath moveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.50000 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.05000 * CGRectGetHeight(frame))];
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.67634 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.30729 * CGRectGetHeight(frame))];
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.97553 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.39549 * CGRectGetHeight(frame))];
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.78532 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.64271 * CGRectGetHeight(frame))];
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.79389 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.95451 * CGRectGetHeight(frame))];
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.50000 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.85000 * CGRectGetHeight(frame))];
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.20611 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.95451 * CGRectGetHeight(frame))];
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.21468 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.64271 * CGRectGetHeight(frame))];
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.02447 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.39549 * CGRectGetHeight(frame))];
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.32366 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.30729 * CGRectGetHeight(frame))];
+    [bezierPath closePath];
+    
+    return bezierPath;
+}
+
 @end
 
 
@@ -172,7 +193,10 @@
     self.shape3View.trackTintColor = [UIColor lightGrayColor];
     self.shape3View.progressTintColor = [UIColor colorWithRed:215/255.f green:245/255.f blue:255/255.f alpha:1.f];
     
-    // shape 4 -- ...
+    // shape 4 -- Star
+    [self.shape4View setShape:[DPLinearMeterView starShape:self.shape4View.frame].CGPath];
+    self.shape4View.trackTintColor = [UIColor lightGrayColor];
+    self.shape4View.progressTintColor = [UIColor colorWithRed:255/255.f green:199/255.f blue:87/255.f alpha:1.f];
 }
 
 - (NSUInteger)supportedInterfaceOrientations
