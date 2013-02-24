@@ -8,10 +8,10 @@
 
 #import "ViewController.h"
 
-#import "DPLinearMeterView.h"
+#import "DPMeterView.h"
 
 
-@interface DPLinearMeterView (Example)
+@interface DPMeterView (Example)
 
 + (UIBezierPath *)heartShape:(CGRect)originalFrame;
 + (UIBezierPath *)martiniShape:(CGRect)originalFrame;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation DPLinearMeterView (Example)
+@implementation DPMeterView (Example)
 
 + (CGRect)maximumSquareFrameThatFits:(CGRect)frame;
 {
@@ -175,26 +175,26 @@
     [super viewDidLoad];
     
     // UIApperance
-    [[DPLinearMeterView appearance] setTrackTintColor:[UIColor darkGrayColor]];
-    [[DPLinearMeterView appearance] setProgressTintColor:[UIColor lightGrayColor]];
+    [[DPMeterView appearance] setTrackTintColor:[UIColor darkGrayColor]];
+    [[DPMeterView appearance] setProgressTintColor:[UIColor lightGrayColor]];
     
     // shape 1 -- Heart
-    [self.shape1View setShape:[DPLinearMeterView heartShape:self.shape1View.frame].CGPath];
+    [self.shape1View setShape:[DPMeterView heartShape:self.shape1View.frame].CGPath];
     self.shape1View.trackTintColor = [UIColor lightGrayColor];
     self.shape1View.progressTintColor = [UIColor colorWithRed:189/255.f green:32/255.f blue:49/255.f alpha:1.f];
     
     // shape 2 -- Labs
-    [self.shape2View setShape:[DPLinearMeterView beakerShape:self.shape2View.frame].CGPath];
+    [self.shape2View setShape:[DPMeterView beakerShape:self.shape2View.frame].CGPath];
     self.shape2View.trackTintColor = [UIColor lightGrayColor];
     self.shape2View.progressTintColor = [UIColor colorWithRed:0/255.f green:163/255.f blue:65/255.f alpha:1.f];
     
     // shape 3 -- Martini
-    [self.shape3View setShape:[DPLinearMeterView martiniShape:self.shape3View.frame].CGPath];
+    [self.shape3View setShape:[DPMeterView martiniShape:self.shape3View.frame].CGPath];
     self.shape3View.trackTintColor = [UIColor lightGrayColor];
     self.shape3View.progressTintColor = [UIColor colorWithRed:215/255.f green:245/255.f blue:255/255.f alpha:1.f];
     
     // shape 4 -- Star
-    [self.shape4View setShape:[DPLinearMeterView starShape:self.shape4View.frame].CGPath];
+    [self.shape4View setShape:[DPMeterView starShape:self.shape4View.frame].CGPath];
     self.shape4View.trackTintColor = [UIColor lightGrayColor];
     self.shape4View.progressTintColor = [UIColor colorWithRed:255/255.f green:199/255.f blue:87/255.f alpha:1.f];
 }
@@ -208,16 +208,16 @@
 {
     NSMutableArray *shapeViews = [NSMutableArray array];
     
-    if (self.shape1View && [self.shape1View isKindOfClass:[DPLinearMeterView class]])
+    if (self.shape1View && [self.shape1View isKindOfClass:[DPMeterView class]])
         [shapeViews addObject:self.shape1View];
     
-    if (self.shape2View && [self.shape2View isKindOfClass:[DPLinearMeterView class]])
+    if (self.shape2View && [self.shape2View isKindOfClass:[DPMeterView class]])
         [shapeViews addObject:self.shape2View];
     
-    if (self.shape3View && [self.shape3View isKindOfClass:[DPLinearMeterView class]])
+    if (self.shape3View && [self.shape3View isKindOfClass:[DPMeterView class]])
         [shapeViews addObject:self.shape3View];
     
-    if (self.shape4View && [self.shape4View isKindOfClass:[DPLinearMeterView class]])
+    if (self.shape4View && [self.shape4View isKindOfClass:[DPMeterView class]])
         [shapeViews addObject:self.shape4View];
     
     return [NSArray arrayWithArray:shapeViews];
@@ -226,7 +226,7 @@
 - (void)updateProgressWithDelta:(CGFloat)delta animated:(BOOL)animated
 {
     NSArray *shapeViews = [self shapeViews];
-    for (DPLinearMeterView *shapeView in shapeViews) {
+    for (DPMeterView *shapeView in shapeViews) {
         if (delta < 0) {
             [shapeView minus:fabs(delta) animated:animated];
         } else {
@@ -235,7 +235,7 @@
     }
     
     self.progressLabel.text = [NSString stringWithFormat:@"%.2f %%",
-                               [(DPLinearMeterView *)[shapeViews lastObject] progress]*100];
+                               [(DPMeterView *)[shapeViews lastObject] progress]*100];
 }
 
 - (IBAction)minus:(id)sender
@@ -250,7 +250,7 @@
 
 - (IBAction)toggleGravity:(id)sender
 {
-    for (DPLinearMeterView *shapeView in [self shapeViews]) {
+    for (DPMeterView *shapeView in [self shapeViews]) {
         if ([self.gravitySwitch isOn] && ![shapeView isGravityActive]) {
             [shapeView startGravity];
         } else if (![self.gravitySwitch isOn] && [shapeView isGravityActive]) {

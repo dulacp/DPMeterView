@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Pierre Dulac. All rights reserved.
 //
 
-#import "DPLinearMeterView.h"
+#import "DPMeterView.h"
 #import <QuartzCore/QuartzCore.h>
 
 #import "Kiwi.h"
@@ -17,10 +17,10 @@
 SPEC_BEGIN(Test)
 
 describe(@"DPLinearMeterView", ^{
-    __block DPLinearMeterView *meterView = nil;
+    __block DPMeterView *meterView = nil;
     
     beforeEach(^{
-        meterView = [[DPLinearMeterView alloc] init];
+        meterView = [[DPMeterView alloc] init];
     });
     
     afterAll(^{

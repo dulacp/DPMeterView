@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Pierre Dulac. All rights reserved.
 //
 
-#import "DPLinearMeterView.h"
+#import "DPMeterView.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <CoreMotion/CoreMotion.h>
 
 
-@interface DPLinearMeterView ()
+@interface DPMeterView ()
 
 @property (nonatomic, readonly) CAGradientLayer* gradientLayer;
 @property (nonatomic, strong) CMMotionManager* motionManager;
@@ -26,7 +26,7 @@
 @end
 
 
-@implementation DPLinearMeterView
+@implementation DPMeterView
 
 + (Class)layerClass
 {

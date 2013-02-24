@@ -70,22 +70,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="6Pz-6U-ilX" customClass="DPLinearMeterView">
+                            <view contentMode="scaleToFill" id="6Pz-6U-ilX" customClass="DPMeterView">
                                 <rect key="frame" x="30" y="66" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="Sti-2F-04i" customClass="DPLinearMeterView">
+                            <view contentMode="scaleToFill" id="Sti-2F-04i" customClass="DPMeterView">
                                 <rect key="frame" x="174" y="66" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="gEE-MX-mkn" customClass="DPLinearMeterView">
+                            <view contentMode="scaleToFill" id="gEE-MX-mkn" customClass="DPMeterView">
                                 <rect key="frame" x="30" y="214" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="FqW-iP-08z" customClass="DPLinearMeterView">
+                            <view contentMode="scaleToFill" id="FqW-iP-08z" customClass="DPMeterView">
                                 <rect key="frame" x="174" y="214" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>

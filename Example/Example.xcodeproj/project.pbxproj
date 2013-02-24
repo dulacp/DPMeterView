@@ -28,8 +28,8 @@
 		BE7C404716B580EA00A4581F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C401F16B580E900A4581F /* Foundation.framework */; };
 		BE7C404F16B580EA00A4581F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE7C404D16B580EA00A4581F /* InfoPlist.strings */; };
 		BE7C405216B580EA00A4581F /* DPMeterViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C405116B580EA00A4581F /* DPMeterViewTests.m */; };
-		BE7C405E16B581ED00A4581F /* DPLinearMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C405D16B581ED00A4581F /* DPLinearMeterView.m */; };
-		BE7C405F16B581ED00A4581F /* DPLinearMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C405D16B581ED00A4581F /* DPLinearMeterView.m */; };
+		BE7C405E16B581ED00A4581F /* DPMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C405D16B581ED00A4581F /* DPMeterView.m */; };
+		BE7C405F16B581ED00A4581F /* DPMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C405D16B581ED00A4581F /* DPMeterView.m */; };
 		BE7C406116B5864C00A4581F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C406016B5864C00A4581F /* QuartzCore.framework */; };
 		BE7C406E16B5EDB700A4581F /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C406D16B5EDB700A4581F /* CoreMotion.framework */; };
 		BEA03E9C16D951200055C516 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C406016B5864C00A4581F /* QuartzCore.framework */; };
@@ -74,8 +74,8 @@
 		BE7C404C16B580EA00A4581F /* DPMeterViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DPMeterViewTests-Info.plist"; sourceTree = "<group>"; };
 		BE7C404E16B580EA00A4581F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE7C405116B580EA00A4581F /* DPMeterViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPMeterViewTests.m; sourceTree = "<group>"; };
-		BE7C405C16B581ED00A4581F /* DPLinearMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPLinearMeterView.h; sourceTree = "<group>"; };
-		BE7C405D16B581ED00A4581F /* DPLinearMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPLinearMeterView.m; sourceTree = "<group>"; };
+		BE7C405C16B581ED00A4581F /* DPMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPMeterView.h; sourceTree = "<group>"; };
+		BE7C405D16B581ED00A4581F /* DPMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPMeterView.m; sourceTree = "<group>"; };
 		BE7C406016B5864C00A4581F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BE7C406D16B5EDB700A4581F /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		C31862DBEA1A4747AE7D6D77 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,8 +199,8 @@
 		BE7C405B16B5819E00A4581F /* DPMeterView */ = {
 			isa = PBXGroup;
 			children = (
-				BE7C405C16B581ED00A4581F /* DPLinearMeterView.h */,
-				BE7C405D16B581ED00A4581F /* DPLinearMeterView.m */,
+				BE7C405C16B581ED00A4581F /* DPMeterView.h */,
+				BE7C405D16B581ED00A4581F /* DPMeterView.m */,
 			);
 			name = DPMeterView;
 			path = ../DPValueMeter;
@@ -353,7 +353,7 @@
 				BE7C402A16B580E900A4581F /* main.m in Sources */,
 				BE7C402E16B580E900A4581F /* AppDelegate.m in Sources */,
 				BE7C403D16B580E900A4581F /* ViewController.m in Sources */,
-				BE7C405E16B581ED00A4581F /* DPLinearMeterView.m in Sources */,
+				BE7C405E16B581ED00A4581F /* DPMeterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE7C405216B580EA00A4581F /* DPMeterViewTests.m in Sources */,
-				BE7C405F16B581ED00A4581F /* DPLinearMeterView.m in Sources */,
+				BE7C405F16B581ED00A4581F /* DPMeterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

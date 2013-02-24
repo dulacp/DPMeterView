@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
-@class DPLinearMeterView;
+@class DPMeterView;
 
 @interface ViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet DPLinearMeterView *shape1View;
-@property (strong, nonatomic) IBOutlet DPLinearMeterView *shape2View;
-@property (strong, nonatomic) IBOutlet DPLinearMeterView *shape3View;
-@property (strong, nonatomic) IBOutlet DPLinearMeterView *shape4View;
+@property (strong, nonatomic) IBOutlet DPMeterView *shape1View;
+@property (strong, nonatomic) IBOutlet DPMeterView *shape2View;
+@property (strong, nonatomic) IBOutlet DPMeterView *shape3View;
+@property (strong, nonatomic) IBOutlet DPMeterView *shape4View;
 
 @property (strong, nonatomic) IBOutlet UILabel *progressLabel;
 @property (strong, nonatomic) IBOutlet UISwitch *gravitySwitch;

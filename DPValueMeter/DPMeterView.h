@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface DPLinearMeterView : UIView <UIAppearance>
+@interface DPMeterView : UIView <UIAppearance>
 
 @property(nonatomic, strong) UIColor *trackTintColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, strong) UIColor *progressTintColor UI_APPEARANCE_SELECTOR;
