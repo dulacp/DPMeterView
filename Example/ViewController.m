@@ -175,27 +175,23 @@
     [super viewDidLoad];
     
     // UIApperance
-    [[DPMeterView appearance] setTrackTintColor:[UIColor darkGrayColor]];
-    [[DPMeterView appearance] setProgressTintColor:[UIColor lightGrayColor]];
+    [[DPMeterView appearance] setTrackTintColor:[UIColor lightGrayColor]];
+    [[DPMeterView appearance] setProgressTintColor:[UIColor darkGrayColor]];
     
     // shape 1 -- Heart
     [self.shape1View setShape:[DPMeterView heartShape:self.shape1View.frame].CGPath];
-    self.shape1View.trackTintColor = [UIColor lightGrayColor];
     self.shape1View.progressTintColor = [UIColor colorWithRed:189/255.f green:32/255.f blue:49/255.f alpha:1.f];
     
     // shape 2 -- Labs
     [self.shape2View setShape:[DPMeterView beakerShape:self.shape2View.frame].CGPath];
-    self.shape2View.trackTintColor = [UIColor lightGrayColor];
     self.shape2View.progressTintColor = [UIColor colorWithRed:0/255.f green:163/255.f blue:65/255.f alpha:1.f];
     
     // shape 3 -- Martini
     [self.shape3View setShape:[DPMeterView martiniShape:self.shape3View.frame].CGPath];
-    self.shape3View.trackTintColor = [UIColor lightGrayColor];
     self.shape3View.progressTintColor = [UIColor colorWithRed:215/255.f green:245/255.f blue:255/255.f alpha:1.f];
     
     // shape 4 -- Star
     [self.shape4View setShape:[DPMeterView starShape:self.shape4View.frame].CGPath];
-    self.shape4View.trackTintColor = [UIColor lightGrayColor];
     self.shape4View.progressTintColor = [UIColor colorWithRed:255/255.f green:199/255.f blue:87/255.f alpha:1.f];
 }
 
