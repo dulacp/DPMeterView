@@ -205,9 +205,7 @@
 {
     [super viewDidAppear:animated];
     
-    for (DPMeterView *v in [self shapeViews]) {
-        [v setProgress:0.6 animated:YES];
-    }
+    [self updateProgressWithDelta:0.6 animated:YES];
 }
 
 - (NSUInteger)supportedInterfaceOrientations
@@ -248,8 +246,8 @@
         }
     }
     
-    self.progressLabel.text = [NSString stringWithFormat:@"%.2f %%",
-                               [(DPMeterView *)[shapeViews lastObject] progress]*100];
+    self.title = [NSString stringWithFormat:@"%.2f%%",
+                                [(DPMeterView *)[shapeViews lastObject] progress]*100];
 }
 
 - (IBAction)minus:(id)sender
@@ -260,6 +258,17 @@
 - (IBAction)add:(id)sender
 {
     [self updateProgressWithDelta:+0.1 animated:YES];
+}
+
+- (IBAction)orientationHasChanged:(id)sender
+{
+    CGFloat value = self.orientationSlider.value;
+    CGFloat angle = (M_PI/180) * value;
+    self.orientationLabel.text = [NSString stringWithFormat:@"orientation (%.0f°)", value];
+    
+    for (DPMeterView *v in [self shapeViews]) {
+        [v setGradientOrientationAngle:angle];
+    }
 }
 
 - (IBAction)toggleGravity:(id)sender
