@@ -196,6 +196,18 @@
     // shape 4 -- Star
     [self.shape4View setShape:[DPMeterView starShape:self.shape4View.frame].CGPath];
     self.shape4View.progressTintColor = [UIColor colorWithRed:255/255.f green:199/255.f blue:87/255.f alpha:1.f];
+    
+    // shape 5 -- Progress
+    [self.shape5View setMeterType:DPMeterTypeLinearHorizontal];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    for (DPMeterView *v in [self shapeViews]) {
+        [v setProgress:0.6 animated:YES];
+    }
 }
 
 - (NSUInteger)supportedInterfaceOrientations

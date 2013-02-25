@@ -1,4 +1,4 @@
-//
+ //
 //  DPValueMeterViewTests.m
 //  DPValueMeterViewTests
 //
@@ -75,30 +75,184 @@ describe(@"DPLinearMeterView", ^{
         [[theValue([meterView isGravityActive]) should] beNo];
     });
     
-    context(@"has a yaw", ^{
-        __block CGFloat fakeYaw = 0.1f;
+    it(@"should have the startPoint at the top by default", ^{
+        [meterView setProgress:0.5];
+        CGPoint point = [(CAGradientLayer *)[meterView layer] startPoint];
+        [[theValue(point.y) should] equal:1 withDelta:EPSILON];
+    });
+    
+    it(@"should have the endPoint at the bottom by default", ^{
+        [meterView setProgress:0.5];
+        CGPoint point = [(CAGradientLayer *)[meterView layer] endPoint];
+        [[theValue(point.y) should] equal:0 withDelta:EPSILON];
+    });
+    
+    context(@"has gravity activated", ^{
         
         beforeEach(^{
             [meterView startGravity];
-            ((CAGradientLayer *)meterView.layer).startPoint = CGPointMake(0.5f-fakeYaw, 1.f);
-            ((CAGradientLayer *)meterView.layer).endPoint = CGPointMake(0.5f, 0.f);
+        });
+        
+        it(@"should reset gradient orientation when disabling gravity", ^{
+            [meterView stopGravity];
+            [[theValue([meterView gradientOrientationAngle]) should] equal:M_PI_2 withDelta:EPSILON];
+        });
+        
+    });
+    
+    context(@"has a yaw", ^{
+        
+        beforeEach(^{
         });
         
         afterEach(^{
         });
         
-        it(@"should return the current yaw", ^{
-            [[theValue([meterView currentYaw]) should] equal:fakeYaw withDelta:EPSILON];
+        it(@"should return the current gradient orientation", ^{
+            [meterView setGradientOrientationAngle:M_PI/6];
+            [[theValue([meterView gradientOrientationAngle]) should] equal:M_PI/6 withDelta:EPSILON];
         });
         
-        it(@"should reset gradient orientation when disabling gravity", ^{
-            [meterView stopGravity];
-            [[theValue([meterView currentYaw]) should] equal:0 withDelta:EPSILON];
+        it(@"should have the start point and the end point stay in the [0,1] interval", ^{
+            [meterView setGradientOrientationAngle:-1.01*M_PI_2];
+            CGPoint s = [(CAGradientLayer *)[meterView layer] startPoint];
+            CGPoint e = [(CAGradientLayer *)[meterView layer] endPoint];
+            [[theValue(s.x) should] equal:0.5 withDelta:(0.5+EPSILON)];
+            [[theValue(s.y) should] equal:0.5 withDelta:(0.5+EPSILON)];
+            [[theValue(e.x) should] equal:0.5 withDelta:(0.5+EPSILON)];
+            [[theValue(e.y) should] equal:0.5 withDelta:(0.5+EPSILON)];
+        });
+        
+        it(@"should have a vertical 'up' gradient", ^{
+            [meterView setGradientOrientationAngle:M_PI_2];
+            CGPoint s = [(CAGradientLayer *)[meterView layer] startPoint];
+            CGPoint e = [(CAGradientLayer *)[meterView layer] endPoint];
+            [[theValue(s.x) should] equal:0.5 withDelta:(0.5+EPSILON)];
+            [[theValue(s.y) should] equal:1.0 withDelta:(0.5+EPSILON)];
+            [[theValue(e.x) should] equal:0.5 withDelta:(0.5+EPSILON)];
+            [[theValue(e.y) should] equal:0.0 withDelta:(0.5+EPSILON)];
+        });
+        
+        it(@"should have a vertical 'down' gradient", ^{
+            [meterView setGradientOrientationAngle:3*M_PI_2];
+            CGPoint s = [(CAGradientLayer *)[meterView layer] startPoint];
+            CGPoint e = [(CAGradientLayer *)[meterView layer] endPoint];
+            [[theValue(s.x) should] equal:0.5 withDelta:EPSILON];
+            [[theValue(s.y) should] equal:0.0 withDelta:EPSILON];
+            [[theValue(e.x) should] equal:0.5 withDelta:EPSILON];
+            [[theValue(e.y) should] equal:1.0 withDelta:EPSILON];
+        });
+        
+        it(@"should have correct intersection points for a square wrapping the unit circle", ^{
+            CGRect box = CGRectMake(-1.f, -1.f, 2.f, 2.f);
+            NSArray *points = nil;
+            CGPoint s, e;
+            
+            // quadran 1  PI/4
+            points = [DPMeterView intersectionPointsOfLineOrientedBy:M_PI_4 withBox:box];
+            s = [points[0] CGPointValue], e = [points[1] CGPointValue];
+            [[theValue(s.x) should] equal:-1 withDelta:EPSILON];
+            [[theValue(s.y) should] equal:-1 withDelta:EPSILON];
+            [[theValue(e.x) should] equal:1 withDelta:EPSILON];
+            [[theValue(e.y) should] equal:1 withDelta:EPSILON];
+            
+            // quadran 2  3*PI/4
+            points = [DPMeterView intersectionPointsOfLineOrientedBy:3*M_PI_4 withBox:box];
+            s = [points[0] CGPointValue], e = [points[1] CGPointValue];
+            [[theValue(s.x) should] equal:1 withDelta:EPSILON];
+            [[theValue(s.y) should] equal:-1 withDelta:EPSILON];
+            [[theValue(e.x) should] equal:-1 withDelta:EPSILON];
+            [[theValue(e.y) should] equal:1 withDelta:EPSILON];
+            
+            // quadran 2  5*PI/4
+            points = [DPMeterView intersectionPointsOfLineOrientedBy:5*M_PI_4 withBox:box];
+            s = [points[0] CGPointValue], e = [points[1] CGPointValue];
+            [[theValue(s.x) should] equal:1 withDelta:EPSILON];
+            [[theValue(s.y) should] equal:1 withDelta:EPSILON];
+            [[theValue(e.x) should] equal:-1 withDelta:EPSILON];
+            [[theValue(e.y) should] equal:-1 withDelta:EPSILON];
+            
+            // quadran 2  7*PI/4
+            points = [DPMeterView intersectionPointsOfLineOrientedBy:7*M_PI_4 withBox:box];
+            s = [points[0] CGPointValue], e = [points[1] CGPointValue];
+            [[theValue(s.x) should] equal:-1 withDelta:EPSILON];
+            [[theValue(s.y) should] equal:1 withDelta:EPSILON];
+            [[theValue(e.x) should] equal:1 withDelta:EPSILON];
+            [[theValue(e.y) should] equal:-1 withDelta:EPSILON];
+        });
+        
+        it(@"should have correct intersection points for a unit square [0,1]", ^{
+            CGRect box = CGRectMake(0.f, 0.f, 1.f, 1.f);
+            NSArray *points = nil;
+            CGPoint s, e;
+            
+            // quadran 1  PI/4
+            points = [DPMeterView intersectionPointsOfLineOrientedBy:M_PI_4 withBox:box];
+            s = [points[0] CGPointValue], e = [points[1] CGPointValue];
+            [[theValue(s.x) should] equal:0 withDelta:EPSILON];
+            [[theValue(s.y) should] equal:0 withDelta:EPSILON];
+            [[theValue(e.x) should] equal:1 withDelta:EPSILON];
+            [[theValue(e.y) should] equal:1 withDelta:EPSILON];
+            
+            // quadran 2  3*PI/4
+            points = [DPMeterView intersectionPointsOfLineOrientedBy:3*M_PI_4 withBox:box];
+            s = [points[0] CGPointValue], e = [points[1] CGPointValue];
+            [[theValue(s.x) should] equal:1 withDelta:EPSILON];
+            [[theValue(s.y) should] equal:0 withDelta:EPSILON];
+            [[theValue(e.x) should] equal:0 withDelta:EPSILON];
+            [[theValue(e.y) should] equal:1 withDelta:EPSILON];
+            
+            // quadran 2  5*PI/4
+            points = [DPMeterView intersectionPointsOfLineOrientedBy:5*M_PI_4 withBox:box];
+            s = [points[0] CGPointValue], e = [points[1] CGPointValue];
+            [[theValue(s.x) should] equal:1 withDelta:EPSILON];
+            [[theValue(s.y) should] equal:1 withDelta:EPSILON];
+            [[theValue(e.x) should] equal:0 withDelta:EPSILON];
+            [[theValue(e.y) should] equal:0 withDelta:EPSILON];
+            
+            // quadran 2  7*PI/4
+            points = [DPMeterView intersectionPointsOfLineOrientedBy:7*M_PI_4 withBox:box];
+            s = [points[0] CGPointValue], e = [points[1] CGPointValue];
+            [[theValue(s.x) should] equal:0 withDelta:EPSILON];
+            [[theValue(s.y) should] equal:1 withDelta:EPSILON];
+            [[theValue(e.x) should] equal:1 withDelta:EPSILON];
+            [[theValue(e.y) should] equal:0 withDelta:EPSILON];
+        });
+        
+        it(@"should have the start and the end points in the correct order", ^{
+            CGPoint s, e;
+            
+            // NB: remember that the origin of coordinates for gradient points is
+            //      (0,0) at top-left
+            
+            // quadran 1  PI/4
+            [meterView setGradientOrientationAngle:M_PI_4];
+            s = [(CAGradientLayer *)[meterView layer] startPoint];
+            e = [(CAGradientLayer *)[meterView layer] endPoint];
+            [[theValue(s.y) should] beGreaterThan:theValue(e.y)];
+            
+            // quadran 2  3*PI/4
+            [meterView setGradientOrientationAngle:3*M_PI_4];
+            s = [(CAGradientLayer *)[meterView layer] startPoint];
+            e = [(CAGradientLayer *)[meterView layer] endPoint];
+            [[theValue(s.y) should] beGreaterThan:theValue(e.y)];
+            
+            // quadran 3  5*PI/4
+            [meterView setGradientOrientationAngle:5*M_PI_4];
+            s = [(CAGradientLayer *)[meterView layer] startPoint];
+            e = [(CAGradientLayer *)[meterView layer] endPoint];
+            [[theValue(s.y) should] beLessThan:theValue(e.y)];
+            
+            // quadran 4  7*PI/4
+            [meterView setGradientOrientationAngle:7*M_PI_4];
+            s = [(CAGradientLayer *)[meterView layer] startPoint];
+            e = [(CAGradientLayer *)[meterView layer] endPoint];
+            [[theValue(s.y) should] beLessThan:theValue(e.y)];
         });
 
     });
     
-    context(@"has a shape smaller than the view frame (inset)", ^{
+    context(@"has a shape smaller than the view frame", ^{
         
         beforeEach(^{
             /**
@@ -140,7 +294,7 @@ describe(@"DPLinearMeterView", ^{
              *  => 8
              * then we shift the result up with 1 (the bottom padding)
              *  => 9
-             * finally we translate that height in a percentage of the outer box
+             * finally we translate that height in a percentage of the outer box height
              *  => 9.0 / 20
              */
             [[theValue(rescaledProgress) should] equal:0.45 withDelta:EPSILON];
@@ -154,6 +308,47 @@ describe(@"DPLinearMeterView", ^{
             [[theValue(h) should] beGreaterThanOrEqualTo:theValue(1 + 16)];
         });
     
+    });
+    
+    context(@"has a vertical meter type", ^{
+        
+        beforeEach(^{
+            [meterView setMeterType:DPMeterTypeLinearHorizontal];
+        });
+        
+        it(@"should has a vertical gradient", ^{
+            [meterView setProgress:0.5f];
+            [[theValue([meterView gradientOrientationAngle]) should] equal:0 withDelta:EPSILON];
+        });
+        
+        it(@"should have the left-to-right gradient by default", ^{
+            [meterView setProgress:0.5];
+            CGPoint s = [(CAGradientLayer *)[meterView layer] startPoint], e = [(CAGradientLayer *)[meterView layer] endPoint];
+            [[theValue(s.x) should] equal:0 withDelta:EPSILON];
+            [[theValue(e.x) should] equal:1 withDelta:EPSILON];
+        });
+        
+        it(@"should have the right-to-left gradient", ^{
+            [meterView setGradientOrientationAngle:M_PI];
+            [meterView setProgress:0.5];
+            CGPoint s = [(CAGradientLayer *)[meterView layer] startPoint], e = [(CAGradientLayer *)[meterView layer] endPoint];
+            [[theValue(s.x) should] equal:1 withDelta:EPSILON];
+            [[theValue(e.x) should] equal:0 withDelta:EPSILON];
+        });
+        
+    });
+    
+    context(@"has an horizontal meter type", ^{
+       
+        beforeEach(^{
+            [meterView setMeterType:DPMeterTypeLinearHorizontal];
+        });
+        
+        it(@"should has an horizontal gradient", ^{
+            [meterView setProgress:0.5f];
+            [[theValue([meterView gradientOrientationAngle]) should] equal:0 withDelta:EPSILON];
+        });
+        
     });
 });
 
