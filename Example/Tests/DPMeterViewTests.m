@@ -300,6 +300,22 @@ describe(@"DPLinearMeterView", ^{
             [[theValue(rescaledProgress) should] equal:0.45 withDelta:EPSILON];
         });
         
+        it(@"should have a rescaledProgress correct for an horizontal meter type", ^{
+            [meterView setMeterType:DPMeterTypeLinearHorizontal];
+            CGFloat rescaledProgress = [meterView rescaledProgress:.5f];
+            /**
+             * 50% in the inner box is easy calculated
+             * 0.5 * the inner box width
+             *  => 7
+             * then we shift the result up with 4 (the left padding)
+             *  => 11
+             * finally we translate that height in a percentage of the outer box height
+             *  => 11.0 / 20
+             */
+            [[theValue(rescaledProgress) should] equal:0.55 withDelta:EPSILON];
+        });
+
+        
         it(@"should be completely filled for a progress of 1", ^{
             CGFloat rescaledProgress = [meterView rescaledProgress:1.f];
             // compute the equivalent height

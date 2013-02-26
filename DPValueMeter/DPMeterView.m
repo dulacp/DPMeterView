@@ -185,21 +185,48 @@
     CGFloat pinnedProgress = MIN(MAX(progress, 0.f), 1.f);
     
     // get the bounding box of the mask shape
-    CGRect bounds = [self shapeBounds];
+    CGRect shapeBounds = [self shapeBounds];
     
-    if (CGRectIsEmpty(bounds)) {
+    if (CGRectIsEmpty(shapeBounds)) {
         return pinnedProgress;
     }
     
-    // rescale the progress against the shape height
-    CGFloat scaledProgress = pinnedProgress * CGRectGetHeight(bounds);
+    // rescale the progress against the distance between the start and end points
+    CGPoint start = self.gradientLayer.startPoint, end = self.gradientLayer.endPoint;
     
-    // translate the progress to the beginning of the shape
+    // map the gradient points to the shape bounds
+    CGPoint shapeStart = CGPointMake(start.x * shapeBounds.size.width, start.y * shapeBounds.size.height);
+    CGPoint shapeEnd = CGPointMake(end.x * shapeBounds.size.width, end.y * shapeBounds.size.height);
+    
+    // compute shape distance
+    CGFloat shapeDistance = sqrt((shapeStart.x - shapeEnd.x)*(shapeStart.x - shapeEnd.x) +
+                                 (shapeStart.y - shapeEnd.y)*(shapeStart.y - shapeEnd.y));
+    // scale progress against the distance
+    CGFloat scaledProgress = pinnedProgress * shapeDistance;
+    
+    // compute the shape padding
     // NB: the coordinates of Apple are (0,0) at the top left
-    scaledProgress += (self.bounds.size.height - CGRectGetMaxY(bounds));
+    CGFloat viewDistance, shapePadding;
+    CGFloat gradientAngle = [self gradientOrientationAngle];  // remember the angle interval [0,2*PI]
+    if (gradientAngle > 7*M_PI_4 || gradientAngle <= M_PI_4) {
+        viewDistance = CGRectGetWidth(self.bounds);
+        shapePadding = CGRectGetMinX(shapeBounds);
+    } else if (gradientAngle > M_PI_4 && gradientAngle <= 3*M_PI_4) {
+        viewDistance = CGRectGetHeight(self.bounds);
+        shapePadding = viewDistance - CGRectGetMaxY(shapeBounds);
+    } else if (gradientAngle > 3*M_PI_4 && gradientAngle <= 5*M_PI_4) {
+        viewDistance = CGRectGetWidth(self.bounds);
+        shapePadding = viewDistance - CGRectGetMaxX(shapeBounds);
+    } else {
+        viewDistance = CGRectGetHeight(self.bounds);
+        shapePadding = CGRectGetMinY(shapeBounds);
+    }
+    
+    // translate the progress by the shape padding
+    scaledProgress += shapePadding;
     
     // convert into a percentage
-    scaledProgress /= self.bounds.size.height;
+    scaledProgress /= viewDistance;
     
     return scaledProgress;
 }
