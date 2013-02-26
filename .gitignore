@@ -109,7 +109,16 @@ xcuserdata
 # We're using source-control, so this is a "feature" that we do not want!
  
 *.moved-aside
- 
+
+####
+## Cocoapods: cocoapods.org
+## 
+## Ignoring these files means that whoever uses the code will first have to run:
+## pod install
+## in the App.xcodeproj directory.
+## This ensures the latest dependencies are used.
+Pods/
+Podfile.lock 
  
 ####
 # UNKNOWN: recommended by others, but I can't discover what these files are
