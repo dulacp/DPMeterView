@@ -470,8 +470,10 @@
         self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
         [self.motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     }
-    if ([self.motionManager isDeviceMotionAvailable])
-        [self.motionManager startDeviceMotionUpdates];
+    if ([self.motionManager isDeviceMotionAvailable]) {
+        // to avoid using more CPU than necessary we use ``CMAttitudeReferenceFrameXArbitraryZVertical``
+        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
+    }
 }
 
 - (void)stopGravity
