@@ -423,15 +423,16 @@
 
 - (void)motionRefresh:(id)sender
 {
-    // retrieve data
-    double yaw = self.motionManager.deviceMotion.attitude.yaw;
-    yaw *= -1;      // reverse the angle so that it reflect a *liquid-like* behavior
-    yaw += M_PI;    // because for the motion manager 0 is the calibration value (but for us 0 it's the horizontal axis)
     
-    // ensure that yaw stays between [-PI/2, +PI/2]
-    // TODO find a better way to do that, and why it doesn't work if the device is face down..
-    if (yaw < -M_PI_2) yaw += M_PI_2;
-    if (yaw > M_PI_2) yaw -= M_PI_2;
+    // compute the device yaw from the attitude quaternion
+    // http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
+    CMQuaternion quat = self.motionManager.deviceMotion.attitude.quaternion;
+    double yaw = asin(2*(quat.x*quat.z - quat.w*quat.y));
+    
+    // TODO improve the yaw interval (stuck to [-PI/2, PI/2] due to arcsin definition
+    
+    yaw *= -1;      // reverse the angle so that it reflect a *liquid-like* behavior
+    yaw += M_PI_2;  // because for the motion manager 0 is the calibration value (but for us 0 is the horizontal axis)
     
     if (self.motionLastYaw == 0) {
         self.motionLastYaw = yaw;
