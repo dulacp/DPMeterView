@@ -18,9 +18,19 @@ There is plenty of examples where it can be useful:
 pod 'DPMeterView', '0.0.1'
 ```
 
-## Demo
+## Run the Demo
 
-Checkout the `Example` ! It contains everything you need to begin with `DPMeterView` views.
+Clone the repo and install CocoaPods dependencies (needed to run the tests).
+
+```sh
+$ git clone https://github.com/dulaccc/DPMeterView.git
+$ cd DPMeterView/Example
+$ pod install
+$ open Example.xcworkspace
+```
+
+Then select the correct active scheme `Example` (if something else like `Pod` or `Pod-DPMeterViewTests` was selected).
+And your good to run the app on the Simulator or a Device.
 
 ![iPhone portrait](Screenshots/iphone-portrait.png)
 
