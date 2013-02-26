@@ -210,7 +210,7 @@
 				BE9B0E4216DCE7D60031EE95 /* UIBezierPath+BasicShapes.m */,
 			);
 			name = DPMeterView;
-			path = ../DPValueMeter;
+			path = ../DPMeterView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
