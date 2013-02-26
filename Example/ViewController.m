@@ -45,7 +45,7 @@
     
     // shape 4 -- 3 Stars
     [self.shape4View setMeterType:DPMeterTypeLinearHorizontal];
-    [self.shape4View setShape:[UIBezierPath threeStarsShape:self.shape4View.frame].CGPath];
+    [self.shape4View setShape:[UIBezierPath stars:3 shapeInFrame:self.shape4View.frame].CGPath];
     self.shape4View.progressTintColor = [UIColor colorWithRed:255/255.f green:199/255.f blue:87/255.f alpha:1.f];
     
     // shape 5 -- Progress

@@ -14,6 +14,6 @@
 + (UIBezierPath *)martiniShape:(CGRect)originalFrame;
 + (UIBezierPath *)beakerShape:(CGRect)originalFrame;
 + (UIBezierPath *)starShape:(CGRect)originalFrame;
-+ (UIBezierPath *)threeStarsShape:(CGRect)originalFrame;
++ (UIBezierPath *)stars:(NSUInteger)numberOfStars shapeInFrame:(CGRect)originalFrame;
 
 @end

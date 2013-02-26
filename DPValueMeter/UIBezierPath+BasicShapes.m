@@ -149,14 +149,14 @@
     return bezierPath;
 }
 
-+ (UIBezierPath *)threeStarsShape:(CGRect)originalFrame
++ (UIBezierPath *)stars:(NSUInteger)numberOfStars shapeInFrame:(CGRect)originalFrame
 {
-    // divide the original frame into 3 equally sized frames
-    CGFloat w = originalFrame.size.width/3;
+    // divide the original frame into equally sized frames
+    CGFloat w = originalFrame.size.width/numberOfStars;
     CGRect babyFrame = CGRectMake(0, 0, w, originalFrame.size.height);
     UIBezierPath* bezierPath = [UIBezierPath bezierPath];
     
-    for (int i=0; i < 3; i++) {
+    for (int i=0; i < numberOfStars; i++) {
         // get the star shape
         UIBezierPath* startPath = [UIBezierPath starShape:babyFrame];
         // move it to the desired location
