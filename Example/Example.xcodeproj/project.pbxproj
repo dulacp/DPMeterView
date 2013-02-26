@@ -33,6 +33,7 @@
 		BE7C405F16B581ED00A4581F /* DPMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C405D16B581ED00A4581F /* DPMeterView.m */; };
 		BE7C406116B5864C00A4581F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C406016B5864C00A4581F /* QuartzCore.framework */; };
 		BE7C406E16B5EDB700A4581F /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C406D16B5EDB700A4581F /* CoreMotion.framework */; };
+		BE9B0E4316DCE7D60031EE95 /* UIBezierPath+BasicShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9B0E4216DCE7D60031EE95 /* UIBezierPath+BasicShapes.m */; };
 		BEA03E9C16D951200055C516 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C406016B5864C00A4581F /* QuartzCore.framework */; };
 		BEA03E9D16D9512B0055C516 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C406D16B5EDB700A4581F /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,8 @@
 		BE7C405D16B581ED00A4581F /* DPMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPMeterView.m; sourceTree = "<group>"; };
 		BE7C406016B5864C00A4581F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BE7C406D16B5EDB700A4581F /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		BE9B0E4116DCE7D60031EE95 /* UIBezierPath+BasicShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+BasicShapes.h"; sourceTree = "<group>"; };
+		BE9B0E4216DCE7D60031EE95 /* UIBezierPath+BasicShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+BasicShapes.m"; sourceTree = "<group>"; };
 		C31862DBEA1A4747AE7D6D77 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -203,6 +206,8 @@
 			children = (
 				BE7C405C16B581ED00A4581F /* DPMeterView.h */,
 				BE7C405D16B581ED00A4581F /* DPMeterView.m */,
+				BE9B0E4116DCE7D60031EE95 /* UIBezierPath+BasicShapes.h */,
+				BE9B0E4216DCE7D60031EE95 /* UIBezierPath+BasicShapes.m */,
 			);
 			name = DPMeterView;
 			path = ../DPValueMeter;
@@ -356,6 +361,7 @@
 				BE7C402E16B580E900A4581F /* AppDelegate.m in Sources */,
 				BE7C403D16B580E900A4581F /* ViewController.m in Sources */,
 				BE7C405E16B581ED00A4581F /* DPMeterView.m in Sources */,
+				BE9B0E4316DCE7D60031EE95 /* UIBezierPath+BasicShapes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
