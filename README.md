@@ -40,7 +40,8 @@ And your good to run the app on the Simulator or a Device.
 #import "DPMeterView.h"
 #import "UIBezierPath+BasicShapes.h"
 
-DPMeterView *fiveStarsShape = [[DPMeterView alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
+DPMeterView *fiveStarsShape = [[DPMeterView alloc] init];
+[fiveStarsShape setFrame:CGRectMake(0, 0, 200, 40)];
 [fiveStarsShape setMeterType:DPMeterTypeLinearHorizontal];
 [fiveStarsShape setShape:[UIBezierPath stars:5 shapeInFrame:fiveStarsShape.bounds].CGPath];
 ```
