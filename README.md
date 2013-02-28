@@ -20,7 +20,7 @@ pod 'DPMeterView', '0.0.1'
 
 ## Run the Demo
 
-Clone the repo and install CocoaPods dependencies (needed to run the tests).
+Clone the repo and install CocoaPods dependencies.
 
 ```sh
 $ git clone https://github.com/dulaccc/DPMeterView.git
