@@ -55,6 +55,8 @@ And a nice animation will update the view.
 
 ### Custom shapes
 
+> Not a single image pixel !
+
 In the example above I'm just using a `UIBezierPath` that is included in the category `UIBezierPath+BasicShapes`. Feel free to fork the project and add other shapes you think it'd be great to have.
 
 You can use any shape you want, the class `DPMeterView` uses the `CGPath` as a mask.
@@ -78,6 +80,7 @@ You can use any shape you want, the class `DPMeterView` uses the `CGPath` as a m
 
 ## Minor known issues
 
+* Don't use `initWithFrame:` on the `0.0.1` version otherwise the `commonInit` method won't be called. Instead, use the `initWithFrame:shape:` or `init` and then `setShape:`
 * The `yaw` obtained from the `CoreMotion` acceleration quaternion is restrained to the interval `[-PI/2, PI/2]`, because of the definition of `arcsin` used to compute it. It would be even better if we find a way to extend it to the complete interval `[-PI, PI]`, but I'm not a "quaternion master" ^^ 
 * There will be some boudary issues with gradients that have an oriented angle other that a vertical or an horizontal one. Especially, a `DPMeterView` shape can be entirely filled whereas it is not at a 100% progression, depends on the shape… 
 
