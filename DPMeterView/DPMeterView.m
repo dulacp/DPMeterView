@@ -66,6 +66,11 @@
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame
+{
+    return [self initWithFrame:frame shape:nil];
+}
+
 - (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape
 {
     return [self initWithFrame:frame shape:shape gravity:NO];
@@ -131,6 +136,10 @@
 
 - (void)setShape:(CGPathRef)shape
 {
+    if (shape == nil) {
+        self.gradientLayer.mask = nil;
+    }
+    
     CAShapeLayer* maskLayer = [CAShapeLayer layer];
     maskLayer.path = shape;
     self.gradientLayer.mask = maskLayer;
@@ -469,7 +478,7 @@
     static float q = 0.1;   // process noise
     static float r = 0.1;   // sensor noise
     static float p = 0.1;   // estimated error
-    static float k = 0.2;   // kalman filter gain
+    static float k = 0.5;   // kalman filter gain
     
     float x = self.motionLastYaw;
     p = p + q;

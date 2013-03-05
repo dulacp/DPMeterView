@@ -52,7 +52,7 @@
     [self.shape5View setMeterType:DPMeterTypeLinearHorizontal];
     self.shape5View.progressTintColor = [UIColor colorWithRed:216/255.f green:147/255.f blue:48/255.f alpha:1.f];
     self.shape5View.trackTintColor = [UIColor colorWithRed:231/255.f green:190/255.f blue:132/255.f alpha:1.f];
-    [self.shape5View setShape:[UIBezierPath bezierPathWithRoundedRect:self.shape5View.bounds cornerRadius:3.f].CGPath];
+    [self.shape5View setShape:[UIBezierPath bezierPathWithRoundedRect:self.shape5View.bounds cornerRadius:0.f].CGPath];
     [self.shape5View.layer setBorderWidth:1.f];
     [self.shape5View.layer setBorderColor:[UIColor colorWithRed:195/255.f green:129/255.f blue:35/255.f alpha:1.f].CGColor];
 }
