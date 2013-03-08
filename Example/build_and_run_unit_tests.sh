@@ -43,7 +43,8 @@ echo "========================="
 xcodebuild $WORKSPACE_OPTION -sdk iphonesimulator -scheme "${UNIT_TEST_TARGET}" build CONFIGURATION_BUILD_DIR="${OUTPUT_DIR}" ONLY_ACTIVE_ARCH=NO
 if [[ $? != 0 ]]; then
   echo "Failed to build unit tests!"
-  exit $?
+  echo $?
+  exit 1
 fi
 
 # Build the main app, with libXcodeTest.a linked in
@@ -55,14 +56,16 @@ echo "==========================="
 xcodebuild $WORKSPACE_OPTION -sdk iphonesimulator -scheme "${MAIN_APP_TARGET}" build CONFIGURATION_BUILD_DIR="${OUTPUT_DIR}" XCODE_TEST_LDFLAGS="${XCODE_TEST_LDFLAGS}" ONLY_ACTIVE_ARCH=NO
 if [[ $? != 0 ]]; then
   echo "Failed to build app!"
-  exit $?
+  echo $?
+  exit 1
 fi
 
 # Check that waxsim is installed, used to run the app in the simulator
 which waxsim
 if [[ $? != 0 ]]; then
   echo "Could not find 'waxsim', make sure it is installed and try again"
-  exit $?
+  echo $?
+  exit 1
 fi
 
 # Warn users that it wont run the tests unless you tweak the linker settings
