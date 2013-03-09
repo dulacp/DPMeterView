@@ -1,7 +1,7 @@
 # DPMeterView
 **Presents values in a custom gauge-style meter view with delightful animations**
 
-[![Build Status](https://travis-ci.org/dulaccc/DPMeterView.png)](https://travis-ci.org/dulaccc/DPMeterView)
+[![Build Status](https://travis-ci.org/dulaccc/DPMeterView.png?branch=master)](https://travis-ci.org/dulaccc/DPMeterView)
 
 > It should be easy to fill a shape with a color, to visually reflect a percentage.
 
