@@ -35,8 +35,8 @@
     [self.shape1View setShape:[UIBezierPath heartShape:self.shape1View.frame].CGPath];
     self.shape1View.progressTintColor = [UIColor colorWithRed:189/255.f green:32/255.f blue:49/255.f alpha:1.f];
     
-    // shape 2 -- Labs
-    [self.shape2View setShape:[UIBezierPath beakerShape:self.shape2View.frame].CGPath];
+    // shape 2 -- User
+    [self.shape2View setShape:[UIBezierPath userShape:self.shape2View.frame].CGPath];
     self.shape2View.progressTintColor = [UIColor colorWithRed:0/255.f green:163/255.f blue:65/255.f alpha:1.f];
     
     // shape 3 -- Martini
