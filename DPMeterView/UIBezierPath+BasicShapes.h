@@ -11,6 +11,7 @@
 @interface UIBezierPath (BasicShapes)
 
 + (UIBezierPath *)heartShape:(CGRect)originalFrame;
++ (UIBezierPath *)userShape:(CGRect)originalFrame;
 + (UIBezierPath *)martiniShape:(CGRect)originalFrame;
 + (UIBezierPath *)beakerShape:(CGRect)originalFrame;
 + (UIBezierPath *)starShape:(CGRect)originalFrame;
