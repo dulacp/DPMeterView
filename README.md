@@ -12,6 +12,8 @@ There is plenty of examples where it can be useful:
 * emotion view
 * trend value view
 
+![iPhone portrait](Screenshots/iphone-portrait.png)
+
 ## CocoaPods
 
 > Instead of adding the source files directly to your project, you may want to consider using [CocoaPods](http://cocoapods.org/) to manage your dependencies. Follow the instructions on the CocoaPods site to install the gem, and specify DPMeterView as a dependency in your `Podfile` with
@@ -33,8 +35,6 @@ $ open Example.xcworkspace
 
 Then select the correct active scheme `Example` (if something else like `Pod` or `Pod-DPMeterViewTests` was selected).
 And your good to run the app on the Simulator or a Device.
-
-![iPhone portrait](Screenshots/iphone-portrait.png)
 
 ## Usage
 
@@ -66,9 +66,9 @@ You can use any shape you want, the class `DPMeterView` uses the `CGPath` as a m
 
 ### Gravity aware
 
-![iPhone portrait](Screenshots/iphone-with-gravity.png)
-
 > to try this feature you need to run the `Example` project on a device because the simulator doesn't provide `CoreMotion` acceleration data.
+
+![iPhone portrait](Screenshots/iphone-with-gravity.png)
 
 #### startGravity
 
