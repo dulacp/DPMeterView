@@ -243,6 +243,11 @@
 				CLASSPREFIX = DP;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Pierre Dulac";
+				TargetAttributes = {
+					BE7C401816B580E900A4581F = {
+						DevelopmentTeam = 3YE8W98TRS;
+					};
+				};
 			};
 			buildConfigurationList = BE7C401316B580E900A4581F /* Build configuration list for PBXProject "Example" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -457,6 +462,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A8A68A268D814A758AA0783B /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Example-Info.plist";
@@ -469,6 +476,7 @@
 					"$(XCODE_TEST_LDFLAGS)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -477,6 +485,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A8A68A268D814A758AA0783B /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Example-Info.plist";
@@ -489,6 +499,7 @@
 					"$(XCODE_TEST_LDFLAGS)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

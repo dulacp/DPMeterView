@@ -19,7 +19,6 @@
 @property (strong, nonatomic) IBOutlet DPMeterView *shape2View;
 @property (strong, nonatomic) IBOutlet DPMeterView *shape3View;
 @property (strong, nonatomic) IBOutlet DPMeterView *shape4View;
-@property (strong, nonatomic) IBOutlet DPMeterView *shape5View;
 
 @property (strong, nonatomic) IBOutlet UILabel *orientationLabel;
 @property (strong, nonatomic) IBOutlet UISlider *orientationSlider;

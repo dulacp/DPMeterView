@@ -48,13 +48,9 @@
     [self.shape4View setShape:[UIBezierPath stars:3 shapeInFrame:self.shape4View.frame].CGPath];
     self.shape4View.progressTintColor = [UIColor colorWithRed:255/255.f green:199/255.f blue:87/255.f alpha:1.f];
     
-    // shape 5 -- Progress
-    [self.shape5View setMeterType:DPMeterTypeLinearHorizontal];
-    self.shape5View.progressTintColor = [UIColor colorWithRed:216/255.f green:147/255.f blue:48/255.f alpha:1.f];
-    self.shape5View.trackTintColor = [UIColor colorWithRed:231/255.f green:190/255.f blue:132/255.f alpha:1.f];
-    [self.shape5View setShape:[UIBezierPath bezierPathWithRoundedRect:self.shape5View.bounds cornerRadius:0.f].CGPath];
-    [self.shape5View.layer setBorderWidth:1.f];
-    [self.shape5View.layer setBorderColor:[UIColor colorWithRed:195/255.f green:129/255.f blue:35/255.f alpha:1.f].CGColor];
+    // swith on the gravity
+    self.gravitySwitch.on = YES;
+    [self toggleGravity:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -73,20 +69,18 @@
 {
     NSMutableArray *shapeViews = [NSMutableArray array];
     
-    if (self.shape1View && [self.shape1View isKindOfClass:[DPMeterView class]])
-        [shapeViews addObject:self.shape1View];
+    NSArray *candidateViews = @[
+                                self.shape1View,
+                                self.shape2View,
+                                self.shape3View,
+                                self.shape4View,
+                                ];
     
-    if (self.shape2View && [self.shape2View isKindOfClass:[DPMeterView class]])
-        [shapeViews addObject:self.shape2View];
-    
-    if (self.shape3View && [self.shape3View isKindOfClass:[DPMeterView class]])
-        [shapeViews addObject:self.shape3View];
-    
-    if (self.shape4View && [self.shape4View isKindOfClass:[DPMeterView class]])
-        [shapeViews addObject:self.shape4View];
-    
-    if (self.shape5View && [self.shape5View isKindOfClass:[DPMeterView class]])
-        [shapeViews addObject:self.shape5View];
+    for (UIView *view in candidateViews) {
+        if ([view isKindOfClass:[DPMeterView class]]) {
+            [shapeViews addObject:view];
+        }
+    }
     
     return [NSArray arrayWithArray:shapeViews];
 }
