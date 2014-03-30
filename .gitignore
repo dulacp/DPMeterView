@@ -1,12 +1,17 @@
 #########################
 # .gitignore file for Xcode4 / OS X Source projects
 #
+# Version 2.0
+#    For latest version, see: http://stackoverflow.com/questions/49478/git-ignore-file-for-xcode-projects
+#
+# 2013 updates:
+#    - fixed the broken "save personal Schemes"
+#
 # NB: if you are storing "built" products, this WILL NOT WORK,
 #   and you should use a different .gitignore (or none at all)
 # This file is for SOURCE projects, where there are many extra
 #   files that we want to exclude
 #
-# For updates, see: http://stackoverflow.com/questions/49478/git-ignore-file-for-xcode-projects
 #########################
  
 #####
@@ -61,12 +66,27 @@ build/
  
  
 ####
-# Xcode 4 - semi-personal settings, often included in workspaces
+# Xcode 4 - semi-personal settings
 #
-# You can safely ignore the xcuserdata files - but do NOT ignore the files next to them
 #
- 
+# OPTION 1: ---------------------------------
+#     throw away ALL personal settings (including custom schemes!
+#     - unless they are "shared")
+#
+# NB: this is exclusive with OPTION 2 below
 xcuserdata
+ 
+# OPTION 2: ---------------------------------
+#     get rid of ALL personal settings, but KEEP SOME OF THEM
+#     - NB: you must manually uncomment the bits you want to keep
+#
+# NB: this is exclusive with OPTION 1 above
+#
+xcuserdata/**/*
+ 
+#     (requires option 2 above): Personal Schemes
+#
+!xcuserdata/**/xcschemes/*
  
 ####
 # XCode 4 workspaces - more detailed
@@ -75,31 +95,23 @@ xcuserdata
 #
 # Workspace layout is quite spammy. For reference:
 #
-# (root)/
-#   (project-name).xcodeproj/
+# /(root)/
+#   /(project-name).xcodeproj/
 #     project.pbxproj
-#     project.xcworkspace/
+#     /project.xcworkspace/
 #       contents.xcworkspacedata
-#       xcuserdata/
-#         (your name)/xcuserdatad/
-#     xcuserdata/
-#       (your name)/xcuserdatad/
+#       /xcuserdata/
+#         /(your name)/xcuserdatad/
+#           UserInterfaceState.xcuserstate
+#     /xcsshareddata/
+#       /xcschemes/
+#         (shared scheme name).xcscheme
+#     /xcuserdata/
+#       /(your name)/xcuserdatad/
+#         (private scheme).xcscheme
+#         xcschememanagement.plist
 #
 #
-#
-# Xcode 4 workspaces - SHARED
-#
-# This is UNDOCUMENTED (google: "developer.apple.com xcshareddata" - 0 results
-# But if you're going to kill personal workspaces, at least keep the shared ones...
-#
-#
-!xcshareddata
- 
-####
-# XCode 4 build-schemes
-#
-# PRIVATE ones are stored inside xcuserdata
-!xcschemes
  
 ####
 # Xcode 4 - Deprecated classes
@@ -118,7 +130,6 @@ xcuserdata
 ## in the App.xcodeproj directory.
 ## This ensures the latest dependencies are used.
 Pods/
-Podfile.lock 
  
 ####
 # UNKNOWN: recommended by others, but I can't discover what these files are
