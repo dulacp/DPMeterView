@@ -1,6 +1,6 @@
 platform :ios, :deployment_target => '5.0'
 
-pod 'DPMeterView', :local => '../.'
+pod 'DPMeterView', :path => '../.'
 
 # Add Kiwi as an exclusive dependency for the Tests target
 target :DPMeterViewTests do
