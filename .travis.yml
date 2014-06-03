@@ -2,5 +2,5 @@ language: objective-c
 before_install:
     - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
     - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-    - cd Example && pod install && cd $TRAVIS_BUILD_DIR
+    - cd Example && pod update && cd $TRAVIS_BUILD_DIR
 script: "make citest"
