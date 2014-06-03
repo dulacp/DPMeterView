@@ -94,6 +94,7 @@ describe(@"DPLinearMeterView", ^{
         });
         
         it(@"should reset gradient orientation when disabling gravity", ^{
+            [[theValue(meterView) should] beNonNil];
             [meterView stopGravity];
             [[theValue([meterView gradientOrientationAngle]) should] equal:M_PI_2 withDelta:EPSILON];
         });
