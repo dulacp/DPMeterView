@@ -14,6 +14,10 @@ There is plenty of examples where it can be useful:
 
 ![iPhone portrait](Screenshots/iphone-portrait.png)
 
+## Requirements
+
+Minimal iOS Target: iOS 5
+
 ## CocoaPods
 
 > Instead of adding the source files directly to your project, you may want to consider using [CocoaPods](http://cocoapods.org/) to manage your dependencies. Follow the instructions on the CocoaPods site to install the gem, and specify DPMeterView as a dependency in your `Podfile` with
