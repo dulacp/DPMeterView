@@ -399,17 +399,25 @@
 
 - (void)setProgress:(CGFloat)progress
 {
-    [self setProgress:progress animated:NO];
+    [self setProgress:progress animated:NO withDuration:0];
 }
 
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated
 {
+    [self setProgress:progress animated:animated withDuration:0.5];
+}
+
+- (void)setProgress:(CGFloat)progress withDuration:(NSTimeInterval)duration
+{
+    [self setProgress:progress animated:YES withDuration:duration];
+}
+
+- (void)setProgress:(CGFloat)progress animated:(BOOL)animated withDuration:(NSTimeInterval)duration
+{
     CGFloat pinnedProgress = MIN(MAX(progress, 0.f), 1.f);
     NSArray* newLocations = [self gradientLocations:pinnedProgress];
-    
-    if (animated)
-    {
-        NSTimeInterval duration = 0.5;
+
+    if (animated) {
         [UIView animateWithDuration:duration animations:^{
             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"locations"];
             animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
@@ -419,12 +427,10 @@
             animation.toValue = newLocations;
             [self.gradientLayer addAnimation:animation forKey:@"animateLocations"];
         }];
-    }
-    else
-    {
+    } else {
         [self.gradientLayer setNeedsDisplay];
     }
-    
+
     self.gradientLayer.locations = newLocations;
     _progress = pinnedProgress;
 }
