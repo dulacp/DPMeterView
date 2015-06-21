@@ -20,6 +20,7 @@
 @property (nonatomic, strong) CMMotionManager* motionManager;
 @property (nonatomic, strong) CADisplayLink* motionDisplayLink;
 @property (nonatomic) float motionLastYaw;
+@property (nonatomic) BOOL isAnimating;
 
 - (void)commonInit;
 - (NSArray *)gradientPoints:(CGFloat)angle;
@@ -399,25 +400,26 @@
 
 - (void)setProgress:(CGFloat)progress
 {
-    [self setProgress:progress animated:NO withDuration:0];
+    [self setProgress:progress animated:NO duration:0];
 }
 
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated
 {
-    [self setProgress:progress animated:animated withDuration:0.5];
+    [self setProgress:progress animated:animated duration:0.5];
 }
 
-- (void)setProgress:(CGFloat)progress withDuration:(NSTimeInterval)duration
+- (void)setProgress:(CGFloat)progress duration:(NSTimeInterval)duration
 {
-    [self setProgress:progress animated:YES withDuration:duration];
+    [self setProgress:progress animated:YES duration:duration];
 }
 
-- (void)setProgress:(CGFloat)progress animated:(BOOL)animated withDuration:(NSTimeInterval)duration
+- (void)setProgress:(CGFloat)progress animated:(BOOL)animated duration:(NSTimeInterval)duration
 {
     CGFloat pinnedProgress = MIN(MAX(progress, 0.f), 1.f);
     NSArray* newLocations = [self gradientLocations:pinnedProgress];
 
     if (animated) {
+        _isAnimating = YES;
         [UIView animateWithDuration:duration animations:^{
             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"locations"];
             animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
@@ -426,8 +428,11 @@
             animation.fromValue = self.gradientLayer.locations;
             animation.toValue = newLocations;
             [self.gradientLayer addAnimation:animation forKey:@"animateLocations"];
+        } completion:^(BOOL finished) {
+            _isAnimating = NO;
         }];
     } else {
+        _isAnimating = NO;
         [self.gradientLayer setNeedsDisplay];
     }
 
