@@ -46,9 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01AB37AA6AA461063BFBF45C /* Pods-DPMeterViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DPMeterViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DPMeterViewTests/Pods-DPMeterViewTests.release.xcconfig"; sourceTree = "<group>"; };
+		0DAD80163C934C407DB29CD4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		63D6E44EB7FAF2426AD277C1 /* Pods-DPMeterViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DPMeterViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DPMeterViewTests/Pods-DPMeterViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		848A6B969C5043C3A1EC258C /* libPods-DPMeterViewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DPMeterViewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		980DA5169C21441CBEFFCD1A /* Pods-DPMeterViewTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DPMeterViewTests.xcconfig"; path = "Pods/Pods-DPMeterViewTests.xcconfig"; sourceTree = SOURCE_ROOT; };
-		A8A68A268D814A758AA0783B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		BE0BF47C16B6DC0C00E513E0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		BE0BF47E16B6DC0F00E513E0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		BE7C401916B580E900A4581F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +77,7 @@
 		BE7C406016B5864C00A4581F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BE7C406D16B5EDB700A4581F /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		C31862DBEA1A4747AE7D6D77 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0E2BBF2F95142535D0CF2D8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A21ECAE1DF966B75458451A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0E2BBF2F95142535D0CF2D8 /* Pods.debug.xcconfig */,
+				0DAD80163C934C407DB29CD4 /* Pods.release.xcconfig */,
+				63D6E44EB7FAF2426AD277C1 /* Pods-DPMeterViewTests.debug.xcconfig */,
+				01AB37AA6AA461063BFBF45C /* Pods-DPMeterViewTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BE10B8A216D8DFCA0012AF9B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,8 +148,7 @@
 				BE7C404A16B580EA00A4581F /* Tests */,
 				BE7C401C16B580E900A4581F /* Frameworks */,
 				BE7C401A16B580E900A4581F /* Products */,
-				A8A68A268D814A758AA0783B /* Pods.xcconfig */,
-				980DA5169C21441CBEFFCD1A /* Pods-DPMeterViewTests.xcconfig */,
+				2A21ECAE1DF966B75458451A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -232,7 +244,7 @@
 			name = DPMeterViewTests;
 			productName = DPMeterViewTests;
 			productReference = BE7C404316B580EA00A4581F /* DPMeterViewTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -307,7 +319,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-DPMeterViewTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DPMeterViewTests/Pods-DPMeterViewTests-resources.sh\"\n";
 		};
 		4FA168AB7E9A4323952EF39F /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -321,7 +333,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 		};
 		BE7C404116B580EA00A4581F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -461,7 +473,7 @@
 		};
 		BE7C405616B580EA00A4581F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8A68A268D814A758AA0783B /* Pods.xcconfig */;
+			baseConfigurationReference = D0E2BBF2F95142535D0CF2D8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -469,6 +481,7 @@
 				GCC_PREFIX_HEADER = "Example-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Example-Info.plist";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-framework",
 					CoreMotion,
@@ -476,6 +489,7 @@
 					QuartzCore,
 					"$(XCODE_TEST_LDFLAGS)",
 				);
+				OTHER_LIBTOOLFLAGS = "$(inherited) $(OTHER_LDFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -484,7 +498,7 @@
 		};
 		BE7C405716B580EA00A4581F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8A68A268D814A758AA0783B /* Pods.xcconfig */;
+			baseConfigurationReference = 0DAD80163C934C407DB29CD4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -492,6 +506,7 @@
 				GCC_PREFIX_HEADER = "Example-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Example-Info.plist";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-framework",
 					CoreMotion,
@@ -499,6 +514,7 @@
 					QuartzCore,
 					"$(XCODE_TEST_LDFLAGS)",
 				);
+				OTHER_LIBTOOLFLAGS = "$(inherited) $(OTHER_LDFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -507,12 +523,13 @@
 		};
 		BE7C405916B580EA00A4581F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 980DA5169C21441CBEFFCD1A /* Pods-DPMeterViewTests.xcconfig */;
+			baseConfigurationReference = 63D6E44EB7FAF2426AD277C1 /* Pods-DPMeterViewTests.debug.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example-Prefix.pch";
 				INFOPLIST_FILE = "Tests/DPMeterViewTests-Info.plist";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-framework",
 					CoreMotion,
@@ -522,6 +539,7 @@
 					SenTestingKit,
 					"$(XCODE_TEST_LDFLAGS)",
 				);
+				OTHER_LIBTOOLFLAGS = "$(inherited) $(OTHER_LDFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -531,12 +549,13 @@
 		};
 		BE7C405A16B580EA00A4581F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 980DA5169C21441CBEFFCD1A /* Pods-DPMeterViewTests.xcconfig */;
+			baseConfigurationReference = 01AB37AA6AA461063BFBF45C /* Pods-DPMeterViewTests.release.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example-Prefix.pch";
 				INFOPLIST_FILE = "Tests/DPMeterViewTests-Info.plist";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-framework",
 					CoreMotion,
@@ -546,6 +565,7 @@
 					SenTestingKit,
 					"$(XCODE_TEST_LDFLAGS)",
 				);
+				OTHER_LIBTOOLFLAGS = "$(inherited) $(OTHER_LDFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				USER_HEADER_SEARCH_PATHS = "";
