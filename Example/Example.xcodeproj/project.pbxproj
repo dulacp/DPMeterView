@@ -24,7 +24,6 @@
 		BE7C403716B580E900A4581F /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7C403516B580E900A4581F /* MainStoryboard_iPhone.storyboard */; };
 		BE7C403A16B580E900A4581F /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7C403816B580E900A4581F /* MainStoryboard_iPad.storyboard */; };
 		BE7C403D16B580E900A4581F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C403C16B580E900A4581F /* ViewController.m */; };
-		BE7C404516B580EA00A4581F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C404416B580EA00A4581F /* SenTestingKit.framework */; };
 		BE7C404616B580EA00A4581F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C401D16B580E900A4581F /* UIKit.framework */; };
 		BE7C404716B580EA00A4581F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C401F16B580E900A4581F /* Foundation.framework */; };
 		BE7C404F16B580EA00A4581F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE7C404D16B580EA00A4581F /* InfoPlist.strings */; };
@@ -70,7 +69,6 @@
 		BE7C403B16B580E900A4581F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BE7C403C16B580E900A4581F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BE7C404316B580EA00A4581F /* DPMeterViewTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DPMeterViewTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE7C404416B580EA00A4581F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		BE7C404C16B580EA00A4581F /* DPMeterViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DPMeterViewTests-Info.plist"; sourceTree = "<group>"; };
 		BE7C404E16B580EA00A4581F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE7C405116B580EA00A4581F /* DPMeterViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPMeterViewTests.m; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 				BEA03E9D16D9512B0055C516 /* CoreMotion.framework in Frameworks */,
 				BEA03E9C16D951200055C516 /* QuartzCore.framework in Frameworks */,
 				BE61EFD716DA3663005AA835 /* CoreGraphics.framework in Frameworks */,
-				BE7C404516B580EA00A4581F /* SenTestingKit.framework in Frameworks */,
 				BE7C404616B580EA00A4581F /* UIKit.framework in Frameworks */,
 				BE7C404716B580EA00A4581F /* Foundation.framework in Frameworks */,
 				0DD5CB8BE725470F8A715D22 /* libPods-DPMeterViewTests.a in Frameworks */,
@@ -169,7 +166,6 @@
 				BE7C401D16B580E900A4581F /* UIKit.framework */,
 				BE7C401F16B580E900A4581F /* Foundation.framework */,
 				BE7C402116B580E900A4581F /* CoreGraphics.framework */,
-				BE7C404416B580EA00A4581F /* SenTestingKit.framework */,
 				C31862DBEA1A4747AE7D6D77 /* libPods.a */,
 				848A6B969C5043C3A1EC258C /* libPods-DPMeterViewTests.a */,
 			);
@@ -551,8 +547,6 @@
 					CoreMotion,
 					"-framework",
 					QuartzCore,
-					"-framework",
-					SenTestingKit,
 					"$(XCODE_TEST_LDFLAGS)",
 				);
 				OTHER_LIBTOOLFLAGS = "$(inherited) $(OTHER_LDFLAGS)";
@@ -577,8 +571,6 @@
 					CoreMotion,
 					"-framework",
 					QuartzCore,
-					"-framework",
-					SenTestingKit,
 					"$(XCODE_TEST_LDFLAGS)",
 				);
 				OTHER_LIBTOOLFLAGS = "$(inherited) $(OTHER_LDFLAGS)";
