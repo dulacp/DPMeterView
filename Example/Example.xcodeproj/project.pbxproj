@@ -253,7 +253,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DP;
-				LastTestingUpgradeCheck = 0510;
+				LastTestingUpgradeCheck = 0710;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Pierre Dulac";
 				TargetAttributes = {
