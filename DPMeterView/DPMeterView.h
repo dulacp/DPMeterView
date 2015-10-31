@@ -27,6 +27,12 @@ typedef NS_ENUM(NSInteger, DPMeterType) {
 @property (nonatomic) CGFloat progress;
 @property (nonatomic, readonly) BOOL isAnimating;
 
+/**
+ * To control the motion computation based on the interface orientation
+ * default to `UIInterfaceOrientationPortrait`
+ */
+@property (assign, nonatomic) UIInterfaceOrientation interfaceOrientation;
+
 - (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape;
 - (id)initWithFrame:(CGRect)frame shape:(CGPathRef)shape gravity:(BOOL)gravity;
 

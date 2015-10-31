@@ -10,9 +10,24 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import <CoreMotion/CoreMotion.h>
+#import <GLKit/GLKit.h>
 
 #define EPSILON     1e-6
 
+
+static inline GLKQuaternion orientationPortraitFromQuaternion(GLKQuaternion q) {
+    GLKQuaternion gq1 = GLKQuaternionMakeWithAngleAndAxis(M_PI_2, 0, 1, 0);  // add a rotation of the roll 90 degrees
+    GLKQuaternion qp = GLKQuaternionMultiply(gq1, q);
+    GLKQuaternion gq3 = GLKQuaternionMakeWithAngleAndAxis(-M_PI_2, 1, 0, 0);  // add a rotation of the pitch 90 degrees
+    qp = GLKQuaternionMultiply(gq3, qp);
+    return GLKQuaternionMake(-qp.y, qp.x, qp.z, qp.w);
+}
+
+static inline GLKQuaternion orientationLandscapeFromQuaternion(GLKQuaternion q) {
+    GLKQuaternion gq1 = GLKQuaternionMakeWithAngleAndAxis(-M_PI_2, 1, 0, 0);  // add a rotation of the pitch 90 degrees
+    GLKQuaternion qp = GLKQuaternionMultiply(gq1, q);
+    return GLKQuaternionMake(qp.x, qp.y, qp.z, qp.w);
+}
 
 @interface DPMeterView ()
 
@@ -104,6 +119,7 @@
     self.progressTintColor = [UIColor blueColor];
     
     self.meterType = DPMeterTypeLinearVertical;
+    self.interfaceOrientation = UIInterfaceOrientationPortrait;
     self.gradientLayer.locations = @[@0.f, @0.f];
     self.progress = 0.f;
 }
@@ -470,17 +486,37 @@
 
 - (void)motionRefresh:(id)sender
 {
-    
+    CMQuaternion quat = self.motionManager.deviceMotion.attitude.quaternion;
+    GLKQuaternion gq = GLKQuaternionMake(quat.x, quat.y, quat.z, quat.w);
+
+    switch (self.interfaceOrientation) {
+        case UIInterfaceOrientationPortrait:
+            gq = orientationPortraitFromQuaternion(gq);
+            break;
+
+        case UIInterfaceOrientationPortraitUpsideDown:
+            gq = orientationPortraitFromQuaternion(gq);
+            break;
+
+        case UIInterfaceOrientationLandscapeLeft:
+        case UIInterfaceOrientationLandscapeRight:
+            gq = orientationLandscapeFromQuaternion(gq);
+            break;
+
+        default:
+            break;
+    }
+
     // compute the device yaw from the attitude quaternion
     // http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
-    CMQuaternion quat = self.motionManager.deviceMotion.attitude.quaternion;
-    double yaw = asin(2*(quat.x*quat.z - quat.w*quat.y));
-    
+//    double yaw = asin(2*((gq.x * gq.z) - (gq.w * gq.y)));
+    double yaw = atan2f(2*(gq.x * gq.y + gq.z * gq.w), 1 - 2*(gq.y * gq.y + gq.z * gq.z));
+
     // TODO improve the yaw interval (stuck to [-PI/2, PI/2] due to arcsin definition
-    
-    yaw *= -1;      // reverse the angle so that it reflect a *liquid-like* behavior
-    yaw += M_PI_2;  // because for the motion manager 0 is the calibration value (but for us 0 is the horizontal axis)
-    
+
+    // reverse the angle so that it reflect a *liquid-like* behavior
+    yaw *= -1;
+
     if (self.motionLastYaw == 0) {
         self.motionLastYaw = yaw;
     }
