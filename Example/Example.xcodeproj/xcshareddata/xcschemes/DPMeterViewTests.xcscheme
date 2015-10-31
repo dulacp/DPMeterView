@@ -28,8 +28,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BE7C404216B580EA00A4581F"
-               BuildableName = "DPMeterViewTests.octest"
+               BlueprintIdentifier = "BEDECA261BE4DED1005849D0"
+               BuildableName = "DPMeterViewTests.xctest"
                BlueprintName = "DPMeterViewTests"
                ReferencedContainer = "container:Example.xcodeproj">
             </BuildableReference>
@@ -46,8 +46,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BE7C404216B580EA00A4581F"
-               BuildableName = "DPMeterViewTests.octest"
+               BlueprintIdentifier = "BEDECA261BE4DED1005849D0"
+               BuildableName = "DPMeterViewTests.xctest"
                BlueprintName = "DPMeterViewTests"
                ReferencedContainer = "container:Example.xcodeproj">
             </BuildableReference>
