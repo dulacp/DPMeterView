@@ -60,9 +60,17 @@
     [self updateProgressWithDelta:0.6 animated:YES];
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskPortrait;
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    // update the meter interface orientation
+    for (DPMeterView *dmv in @[self.shape1View, self.shape2View, self.shape3View, self.shape4View]) {
+        dmv.interfaceOrientation = self.interfaceOrientation;
+    }
 }
 
 - (NSArray *)shapeViews
