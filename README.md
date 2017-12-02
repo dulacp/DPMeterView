@@ -1,7 +1,7 @@
 # DPMeterView
 **Presents values in a custom gauge-style meter view with delightful animations**
 
-[![Build Status](https://travis-ci.org/dulaccc/DPMeterView.png?branch=master)](https://travis-ci.org/dulaccc/DPMeterView)
+[![Build Status](https://travis-ci.org/dulacp/DPMeterView.png?branch=master)](https://travis-ci.org/dulacp/DPMeterView)
 
 > It should be easy to fill a shape with a color, to visually reflect a percentage.
 
@@ -31,7 +31,7 @@ pod 'DPMeterView', '0.0.1'
 Clone the repo and install CocoaPods dependencies.
 
 ```sh
-$ git clone https://github.com/dulaccc/DPMeterView.git
+$ git clone https://github.com/dulacp/DPMeterView.git
 $ cd DPMeterView/Example
 $ pod install
 $ open Example.xcworkspace
@@ -98,8 +98,8 @@ You can use any shape you want, the class `DPMeterView` uses the `CGPath` as a m
 
 ## Contact
 
-[Pierre Dulac](http://github.com/dulaccc)  
-[@dulaccc](https://twitter.com/dulaccc)
+[Pierre Dulac](http://github.com/dulacp)  
+[@\_dulacp](https://twitter.com/_dulacp)
 
 ## License
 DPMeterView is available under the MIT license. See the LICENSE file for more info.
